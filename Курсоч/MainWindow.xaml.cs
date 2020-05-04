@@ -357,8 +357,9 @@ namespace Курсоч
                     question.Visibility = Visibility.Hidden;
                     radioPanel.Visibility = Visibility.Hidden;
                     Logo.Visibility = Visibility.Hidden;
+                    statusBar.Visibility = Visibility.Hidden;
                     ////////
-                    for(int i=0; i < 5; i++){descriptorSN += testAnswers[i];}
+                    for (int i=0; i < 5; i++){descriptorSN += testAnswers[i];}
                     for (int i  = 5; i < 10; i++){descriptorEI += testAnswers[i];}
                     for (int i = 10; i < 15; i++){descriptorJP += testAnswers[i];}
                     for (int i = 15; i < 20; i++){descriptorTF += testAnswers[i];}
@@ -374,6 +375,66 @@ namespace Курсоч
                         db.SaveChanges();
 
                     }
+                    resultPanel.Visibility = Visibility.Visible;
+                    DoubleAnimation resultPanelAnimation = new DoubleAnimation();
+                    resultPanelAnimation.From = resultPanel.Opacity;
+                    resultPanelAnimation.To = 1;
+                    resultPanelAnimation.Duration = TimeSpan.FromSeconds(0.3);
+                    resultPanel.BeginAnimation(StackPanel.OpacityProperty, resultPanelAnimation);
+
+                    infoPanel.Visibility = Visibility.Visible;
+                    DoubleAnimation infoPanelAnimation = new DoubleAnimation();
+                    infoPanelAnimation.From = infoPanel.Opacity;
+                    infoPanelAnimation.To = 1;
+                    infoPanelAnimation.Duration = TimeSpan.FromSeconds(0.3);
+                    infoPanel.BeginAnimation(StackPanel.OpacityProperty, infoPanelAnimation);
+
+                    statInfoPanel.Visibility = Visibility.Visible;
+                    DoubleAnimation statInfoPanelAnimation = new DoubleAnimation();
+                    statInfoPanelAnimation.From = statInfoPanel.Opacity;
+                    statInfoPanelAnimation.To = 1;
+                    statInfoPanelAnimation.Duration = TimeSpan.FromSeconds(0.3);
+                    statInfoPanel.BeginAnimation(StackPanel.OpacityProperty, statInfoPanelAnimation);
+
+                    int descEIWIDTH = 210-(int)(105 + 105 * (descriptorEI / 5));
+
+                    DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesDescriptorEI = new DoubleAnimationUsingKeyFrames();
+                    LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorEI = new LinearDoubleKeyFrame();
+                    LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorEI2 = new LinearDoubleKeyFrame();
+                    linearDoubleKeyFrameDescriptorEI.KeyTime = TimeSpan.FromSeconds(0.5);
+                    linearDoubleKeyFrameDescriptorEI.Value = 0;
+                    linearDoubleKeyFrameDescriptorEI2.KeyTime = TimeSpan.FromSeconds(1);
+                    linearDoubleKeyFrameDescriptorEI2.Value = descEIWIDTH;
+                    doubleAnimationUsingKeyFramesDescriptorEI.KeyFrames.Add(linearDoubleKeyFrameDescriptorEI);
+                    doubleAnimationUsingKeyFramesDescriptorEI.KeyFrames.Add(linearDoubleKeyFrameDescriptorEI2);
+                    DescriptorEI.BeginAnimation(Border.WidthProperty, doubleAnimationUsingKeyFramesDescriptorEI);
+
+
+                    int descSNWIDTH = (int)(105 + 105 * (descriptorSN / 5));
+
+                    DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesDescriptorSN = new DoubleAnimationUsingKeyFrames();
+                    LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorSN = new LinearDoubleKeyFrame();
+                    LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorSN2 = new LinearDoubleKeyFrame();
+                    linearDoubleKeyFrameDescriptorSN.KeyTime = TimeSpan.FromSeconds(0.5);
+                    linearDoubleKeyFrameDescriptorSN.Value = 0;
+                    linearDoubleKeyFrameDescriptorSN2.KeyTime = TimeSpan.FromSeconds(1);
+                    linearDoubleKeyFrameDescriptorSN2.Value = descSNWIDTH;
+                    doubleAnimationUsingKeyFramesDescriptorSN.KeyFrames.Add(linearDoubleKeyFrameDescriptorSN);
+                    doubleAnimationUsingKeyFramesDescriptorSN.KeyFrames.Add(linearDoubleKeyFrameDescriptorSN2);
+                    DescriptorSN.BeginAnimation(Border.WidthProperty, doubleAnimationUsingKeyFramesDescriptorSN);
+
+                    int descTFWIDTH = (int)(105 + 105 * (descriptorTF / 5));
+
+                    DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesDescriptorTF = new DoubleAnimationUsingKeyFrames();
+                    LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorTF = new LinearDoubleKeyFrame();
+                    LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorTF2 = new LinearDoubleKeyFrame();
+                    linearDoubleKeyFrameDescriptorTF.KeyTime = TimeSpan.FromSeconds(0.5);
+                    linearDoubleKeyFrameDescriptorTF.Value = 0;
+                    linearDoubleKeyFrameDescriptorTF2.KeyTime = TimeSpan.FromSeconds(1);
+                    linearDoubleKeyFrameDescriptorTF2.Value = descSNWIDTH;
+                    doubleAnimationUsingKeyFramesDescriptorTF.KeyFrames.Add(linearDoubleKeyFrameDescriptorTF);
+                    doubleAnimationUsingKeyFramesDescriptorTF.KeyFrames.Add(linearDoubleKeyFrameDescriptorTF2);
+                    DescriptorTF.BeginAnimation(Border.WidthProperty, doubleAnimationUsingKeyFramesDescriptorTF);
 
 
 
