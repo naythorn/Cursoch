@@ -1,0 +1,142 @@
+﻿<Window x:Class="Курсоч.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1400" 
+        Style="{StaticResource MainCOLOR}">
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="Logo" Grid.ColumnSpan="4" Grid.Row="0" Style="{StaticResource Logo}" Visibility="Hidden">
+            <Run Style="{StaticResource LogoCOLOR1}">SIXTEEN</Run>
+            <Run Style="{StaticResource LogoCOLOR2}">PERSONALITIES</Run>
+        </TextBlock>
+
+        <Button Panel.ZIndex="300" Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonBegin" Template="{StaticResource Begin}" Style="{DynamicResource RoundButton}" Visibility="Hidden" Content="Начнем!" Click="ButtonBegin_Click" />
+        <Border Panel.ZIndex="299" x:Name="SignInSignUpPanel" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Style="{StaticResource SignInBorderBox3}"  Visibility="Hidden" Opacity="0">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="buttonSignIn" Template="{StaticResource SignIn}"  Style="{DynamicResource RoundButton}" Margin="0,0,0,20" Foreground="White" Click="buttonSignIn_Click"/>
+                <Button x:Name="buttonSignUp" Template="{StaticResource SignUp}"  Style="{DynamicResource RoundButton}" Margin="0,0,0,0" Foreground="White" Click="buttonSignUp_Click"/>
+            </StackPanel>
+        </Border>
+        <Border Panel.ZIndex="298" x:Name="SignInPanel" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Visibility="Hidden" Style="{StaticResource SignInBorderBox}" Opacity="0">
+            <StackPanel Style="{StaticResource StandartStackPanel}" >
+                <Label Style="{StaticResource LabelSignin}"  Content="Логин"/>
+                <TextBox x:Name="TextBoxSignInLogin" Style="{StaticResource TextBoxSignIn}" TextChanged="TextBox_TextChanged"/>
+                <Label Style="{StaticResource LabelSignin}" Content="Пароль"/>
+                <TextBox x:Name="TextBoxSignInPassword" TextChanged="TextBox_TextChanged" Style="{StaticResource TextBoxSignIn}"/>
+                <TextBlock Style="{StaticResource TextBlockInvalidSignIn}" >
+                    <Run x:Name="ErrorSignIn"></Run>
+                </TextBlock>
+                <Button  x:Name="buttonSignIn2" Template="{StaticResource SignIn2}" Style="{DynamicResource RoundButton}" Margin="0,5,0,0" Click="buttonSignIn2_Click"/>
+            </StackPanel>
+        </Border>
+        <Border  x:Name="SignUpPanel" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Visibility="Hidden" Style="{StaticResource SignUpBorderBox}" Opacity="0" >
+            <StackPanel Style="{StaticResource StandartStackPanel}" >
+                <Label Style="{StaticResource LabelSignin}"  Content="Логин"/>
+                <TextBox x:Name="TextBoxSignUpLogin" Style="{StaticResource TextBoxSignIn}" TextChanged="TextBox_TextChanged"/>
+                <Label Style="{StaticResource LabelSignin}" Content="Пароль"/>
+                <TextBox x:Name="TextBoxSignUpPassword" TextChanged="TextBox_TextChanged" Style="{StaticResource TextBoxSignIn}"/>
+                <Label Style="{StaticResource LabelSignin}" Content="Повторите пароль"/>
+                <TextBox x:Name="TextBoxSignUpPasswordRepeat" TextChanged="TextBox_TextChanged" Style="{StaticResource TextBoxSignIn}"/>
+                <TextBlock Style="{StaticResource TextBlockInvalidSignIn}" >
+                    <Run x:Name="ErrorSignUp"></Run>
+                </TextBlock>
+                <Button  x:Name="buttonSignUp2" Template="{StaticResource SignUp2}" Style="{DynamicResource RoundButton}" Margin="0,5,0,0" Click="buttonSignUp2_Click"/>
+            </StackPanel>
+        </Border>
+        <Border  x:Name="SuccessfulRegistrationPanel" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Visibility="Hidden" Style="{StaticResource SignUpSuccessBox}" Opacity="0">
+            <StackPanel Style="{StaticResource StandartStackPanel}" >
+                <Label Style="{StaticResource LabelSuccess}"  Content="Вы успешно зарегистрированы!"/>
+                <Button  x:Name="buttonNext" Template="{StaticResource Next}" Style="{DynamicResource RoundButton}" Margin="0,5,0,0" Click="buttonNext_Click"/>
+            </StackPanel>
+        </Border>
+        <Border Panel.ZIndex="297"  x:Name="MenuPanel" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Visibility="Hidden" Style="{StaticResource MenuBorderBox}" Opacity="0" >
+            <StackPanel Style="{StaticResource StandartStackPanel}" >
+                <Button x:Name="buttonStart" Template="{StaticResource Start}" Style="{DynamicResource RoundButton}" Margin="0,10,0,10" Click="buttonStart_Click" />
+                <Button x:Name="buttonResults" Template="{StaticResource Results}" Style="{DynamicResource RoundButton}" Margin="0,10,0,10"/>
+                <Button x:Name="buttonMyTests" Template="{StaticResource MyTests}" Style="{DynamicResource RoundButton}" Margin="0,10,0,10"/>
+                <Button x:Name="buttonPersonalities" Template="{StaticResource Personalities}" Style="{DynamicResource RoundButton}" Margin="0,10,0,10" Click="buttonPersonalities_Click" />
+            </StackPanel>
+        </Border>
+        <Button x:Name="buttonAnalytics" Template="{StaticResource Analytics}" Style="{DynamicResource CircleButton}" Grid.Row="1" Grid.Column="1" Visibility="Hidden" Margin="50,0,0,20"/>
+        <Button  x:Name="buttonGuardians" Template="{StaticResource Guardians}" Style="{DynamicResource CircleButton}" Grid.Row="2" Grid.Column="1" Visibility="Hidden" Margin="50,20,0,0"/>
+        <Button  x:Name="buttonCrawlers" Template="{StaticResource Crawlers}" Style="{DynamicResource CircleButton}" Grid.Row="1" Grid.Column="2" Visibility="Hidden" Margin="0,0,50,20"/>
+        <Button  x:Name="buttonDiplomats" Template="{StaticResource Diplomats}" Style="{DynamicResource CircleButton}" Grid.Row="2" Grid.Column="2" Visibility="Hidden" Margin="0,20,50,0"/>
+
+        <Button  x:Name="panelAnalytics2" Template="{StaticResource Analytic1}"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Visibility="Hidden"/>
+        <Button  x:Name="panelAnalytics3" Template="{StaticResource Analytic1}"   Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Visibility="Hidden"/>
+        <Button  x:Name="panelAnalytics4" Template="{StaticResource Analytic1}"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="3" Visibility="Hidden"/>
+
+        <StackPanel x:Name="statusBar" Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0" Visibility="Hidden">
+            <Ellipse x:Name="el1"  Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el2" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el3" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el4" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el5" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el6" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el7" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el8" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el9" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el10" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el11" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el12" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el13" Style="{DynamicResource statBar}" ></Ellipse>
+            <Ellipse x:Name="el14" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el15" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el16" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el17" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el18" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el19" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el20" Style="{DynamicResource statBar}"></Ellipse>
+        </StackPanel>
+        <TextBlock Name="question"  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Style="{DynamicResource question}" Visibility="Hidden" Opacity="0" >Вы часто тратите свое время на изучение нереальных или непрактичных, но при этом очень интригующих идей.</TextBlock>
+        <StackPanel Panel.ZIndex="50" x:Name="radioPanel" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Orientation="Horizontal" Visibility="Hidden" Opacity="0"  Style="{DynamicResource radioPanel}">
+            <RadioButton x:Name="radio0" Template="{StaticResource largeRadioYes}"></RadioButton>
+            <RadioButton x:Name="radio1" Template="{StaticResource bigRadioYes}"></RadioButton>
+            <RadioButton x:Name="radio2" Template="{StaticResource mediumRadioYes}"></RadioButton>
+            <RadioButton x:Name="radio3" Template="{StaticResource smallRadio}" Checked="radio3_Checked"></RadioButton>
+            <RadioButton x:Name="radio4" Template="{StaticResource mediumRadioNo}"></RadioButton>
+            <RadioButton x:Name="radio5" Template="{StaticResource bigRadioNo}"></RadioButton>
+            <RadioButton x:Name="radio6" Template="{StaticResource largeRadioNo}"></RadioButton>
+        </StackPanel>
+        <Button Panel.ZIndex="50" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="buttonNextQuestion" Template="{StaticResource NextQuestion}" Style="{DynamicResource RoundButton}" Click="buttonNextQuestion_Click" Margin="0,0,0,140" Visibility="Hidden" Opacity="0" />
+        <Button Panel.ZIndex="50" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="buttonLastQuestion" Template="{StaticResource LastQuestion}" Style="{DynamicResource RoundButton}" Click="buttonNextQuestion_Click" Margin="0,0,0,140" Visibility="Hidden" />
+
+        <StackPanel Panel.ZIndex="0" Style="{StaticResource StandartStackPanel}" x:Name="beginTestPanel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Opacity="0" Visibility="Hidden" >
+            <TextBlock x:Name="beginNotification" Style="{StaticResource beginNotificationText}" >Отвечайте честно, даже если вам не нравится ответ. Постарайтесь не давать нейтральных ответов.</TextBlock>
+            <Image Source="D:\курсачек\Курсоч\nimb.png" Style="{StaticResource beginNotificationImage}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right">
+            <TextBlock x:Name="textBlockSectionBasic" Style="{DynamicResource sectionText1}" Visibility="Hidden" Opacity="0">Кто я?</TextBlock>
+            <TextBlock x:Name="textBlockSectionAdvantages" Style="{DynamicResource sectionText2}" Visibility="Hidden" >Достоинства</TextBlock>
+            <TextBlock x:Name="textBlockSectionsDisAdvantages" Style="{DynamicResource sectionText3}" Visibility="Hidden" >Недостатки</TextBlock>
+            <TextBlock x:Name="textBlockSectionAnother" Style="{DynamicResource sectionText3}" Visibility="Hidden" >Кто ещё?</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Visible" >
+            <Button x:Name="buttonSectionBasic" Template="{StaticResource Basic}" Style="{DynamicResource SmallCircleButton}"  Visibility="Visible" MouseEnter="buttonSectionBasic_MouseEnter" MouseLeave="buttonSectionBasic_MouseLeave"/>
+            <Button x:Name="buttonSectionAdvantages" Template="{StaticResource Advantages}" Style="{DynamicResource SmallCircleButton}" MouseEnter="buttonSectionAdvantages_MouseEnter" MouseLeave="buttonSectionAdvantages_MouseLeave" Visibility="Visible"/>
+            <Button x:Name="buttonSectionsDisAdvantages" Template="{StaticResource Disadvantages}" Style="{DynamicResource SmallCircleButton}" MouseEnter="buttonSectionsDisAdvantages_MouseEnter" MouseLeave="buttonSectionsDisAdvantages_MouseLeave" Visibility="Visible"/>
+            <Button x:Name="buttonSectionAnother" Template="{StaticResource Another}" Style="{DynamicResource SmallCircleButton}" MouseEnter="buttonSectionAnother_MouseEnter" MouseLeave="buttonSectionAnother_MouseLeave"  Visibility="Visible"/>
+        </StackPanel>
+        <StackPanel Style="{DynamicResource }" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="3">
+            <TextBlock Style="{DynamicResource titlePers}">ГАВНООО</TextBlock>
+            <Image x:Name="resultBasicImage"Style="{DynamicResource imageBasicPers}"  Source="Protagonist.png" Width="500" Height="200" Visibility="Visible"></Image>
+            <TextBlock> jsdno vuli hfoa9zhua os9uhda9o zsuhf a shuxcnoa9uhfao агьсмьмьр мневнт паьево</TextBlock>
+        </StackPanel>
+        
+        <Button Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonCreateTest" Template="{StaticResource Create}" Style="{DynamicResource RoundButton}" Visibility="Hidden"/>
+    </Grid>
+</Window>

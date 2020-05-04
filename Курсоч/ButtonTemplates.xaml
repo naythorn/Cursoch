@@ -1,0 +1,167 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Курсоч">
+
+    <ControlTemplate TargetType="Button" x:Key="Begin">
+        <Border Style="{DynamicResource borderBegin}" BorderBrush="Transparent" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Начать!"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="SignIn">
+        <Border Style="{DynamicResource borderSignIn}" BorderBrush="Transparent" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Войти" />
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="SignUp">
+        <Border Style="{DynamicResource borderSignUp}" BorderBrush="Transparent">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Зарегистрироваться" />
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="SignUp2">
+        <Border Style="{DynamicResource borderSignUp2}" BorderBrush="Transparent">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Зарегистрироваться" />
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="SignIn2">
+        <Border Style="{DynamicResource borderSignIn2}" BorderBrush="Transparent">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Войти" />
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="Next">
+            <Border Style="{DynamicResource BorderNext}" BorderBrush="Transparent">
+                <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Далее"/>
+            </Border>
+        </ControlTemplate>
+    <!--Menu Panel-->
+    <ControlTemplate TargetType="Button" x:Key="Start">
+        <Border Style="{DynamicResource BorderStart}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Начать тест"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="Results">
+        <Border Style="{DynamicResource BorderResults}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Результаты"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="MyTests">
+        <Border Style="{DynamicResource BorderMyTests}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Мои тесты"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="Personalities">
+        <Border Style="{DynamicResource BorderPersonalities}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Типы личностей"/>
+        </Border>
+    </ControlTemplate>
+    <!--Personalities Panel-->
+    <ControlTemplate TargetType="Button" x:Key="Analytics">
+        <Border Style="{DynamicResource BorderAnalytics}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Аналитики"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="Guardians">
+        <Border Style="{DynamicResource BorderGuardians}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Результаты"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="Crawlers">
+        <Border Style="{DynamicResource BorderCrawlers}" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Искатели"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="Diplomats">
+        <Border Style="{DynamicResource BorderDiplomats}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Дипломаты"/>
+        </Border>
+    </ControlTemplate>
+    <!--Analytics -->
+    <ControlTemplate TargetType="Button" x:Key="Analytic1">
+        <Border Style="{DynamicResource BorderAnalytics}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Аналитики"/>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate TargetType="Button" x:Key="Analytic2">
+        <Border Style="{DynamicResource BorderAnalytics}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Аналитики"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="Analytics3">
+        <Border Style="{DynamicResource BorderAnalytics}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Аналитики"/>
+        </Border>
+    </ControlTemplate>
+    <!--Radio buttons-->
+    <ControlTemplate TargetType="RadioButton" x:Key="largeRadioYes">
+        <Border Style="{DynamicResource BorderLargeRadioYes}">
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+        <ControlTemplate TargetType="RadioButton" x:Key="bigRadioYes">
+        <Border Style="{DynamicResource BorderBigRadioYes}">
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="RadioButton" x:Key="mediumRadioYes">
+        <Border Style="{DynamicResource BorderMediumRadioYes}">
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="RadioButton" x:Key="smallRadio">
+        <Border Style="{DynamicResource BorderSmallRadio}">
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="RadioButton" x:Key="mediumRadioNo">
+        <Border Style="{DynamicResource BorderMediumRadioNo}">
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="RadioButton" x:Key="bigRadioNo">
+        <Border Style="{DynamicResource BorderBigRadioNo}">
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="RadioButton" x:Key="largeRadioNo">
+        <Border Style="{DynamicResource BorderLargeRadioNo}"> 
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+    <!--Next Question-->
+    <ControlTemplate TargetType="Button" x:Key="NextQuestion">
+        <Border Style="{DynamicResource BorderNextQuestion}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Следующий"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="LastQuestion">
+        <Border Style="{DynamicResource BorderLastQuestion}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Завершить"/>
+        </Border>
+    </ControlTemplate>
+    <!---->
+    <ControlTemplate TargetType="Button" x:Key="Basic">
+        <Border Style="{DynamicResource BorderBasic}" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="?"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="Advantages">
+        <Border Style="{DynamicResource BorderAdvantages}" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="+"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="Disadvantages">
+        <Border Style="{DynamicResource BorderDisadvantages}" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="-"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="Another">
+        <Border Style="{DynamicResource BorderAnother}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="★"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="Create">
+        <Border Style="{DynamicResource borderCreate}" BorderBrush="Transparent" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Создать!"/>
+        </Border>
+    </ControlTemplate>
+</ResourceDictionary>

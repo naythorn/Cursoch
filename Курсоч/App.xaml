@@ -1,0 +1,21 @@
+﻿<Application x:Class="Курсоч.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Курсоч"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+    
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Button.xaml" />
+                <ResourceDictionary Source="Colors.xaml" />
+                <ResourceDictionary Source="ButtonAnimations.xaml" />
+                <ResourceDictionary Source="ButtonBorders.xaml" />
+                <ResourceDictionary Source="ButtonTemplates.xaml" />
+                <ResourceDictionary Source="beginNotification.xaml" />
+                <ResourceDictionary Source="resultDesign.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
