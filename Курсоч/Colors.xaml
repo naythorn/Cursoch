@@ -168,4 +168,16 @@
             <Setter Property="Margin" Value="0,0,10,0"/>
         </Style.Setters>
     </Style>
+    <Style x:Key="yourQuestion" TargetType="TextBox">
+        <Style.Setters>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Margin" Value="30,30,30,30"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Background" Value="#3C9294"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="#3C9294"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style.Setters>
+    </Style>
 </ResourceDictionary>

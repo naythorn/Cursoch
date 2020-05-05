@@ -24,7 +24,7 @@
             <Run Style="{StaticResource LogoCOLOR2}">PERSONALITIES</Run>
         </TextBlock>
 
-        <Button Panel.ZIndex="300" Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonBegin" Template="{StaticResource Begin}" Style="{DynamicResource RoundButton}" Visibility="Visible" Content="Начнем!" Click="ButtonBegin_Click" />
+        <Button Panel.ZIndex="300" Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonBegin" Template="{StaticResource Begin}" Style="{DynamicResource RoundButton}" Visibility="Hidden" Content="Начнем!" Click="ButtonBegin_Click" />
         <Border Panel.ZIndex="299" x:Name="SignInSignUpPanel" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Style="{StaticResource SignInBorderBox3}"  Visibility="Hidden" Opacity="0">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button x:Name="buttonSignIn" Template="{StaticResource SignIn}"  Style="{DynamicResource RoundButton}" Margin="0,0,0,20" Foreground="White" Click="buttonSignIn_Click"/>
@@ -158,11 +158,28 @@
             <TextBlock Style="{DynamicResource statTextBase}">Планирование/Импровизация</TextBlock>
             <Border Style="{DynamicResource statBorderBase}">
                 <Border Style="{DynamicResource statBorderInBase}" Background="#FFCC33">
-                    <Border Style="{DynamicResource statBorderInInBase}" Background="#CC9900"></Border>
-                </Border>
+                    <Border x:Name="DescriptorJP" Style="{DynamicResource statBorderInInBase}" Background="#CC9900"></Border>
+                </Border  >
             </Border>
         </StackPanel>
-        
         <Button Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonCreateTest" Template="{StaticResource Create}" Style="{DynamicResource RoundButton}" Visibility="Hidden"/>
+        
+        <Button  Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="buttonNextYourQuestion" Template="{StaticResource NextQuestion}" Style="{DynamicResource RoundButton}" />
+        <TextBox Name="yourQuestion" Style="{DynamicResource yourQuestion}"  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" >Введите текст вопроса</TextBox>
+        <StackPanel x:Name="statusDynamicBar" Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="1" Visibility="Visible">
+            <Ellipse x:Name="el1y"  Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el2Y" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el3Y" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el4Y" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el5Y" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el6Y" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el7Y" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el8Y" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el9Y" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el10Y" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el11Y" Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el12Y" Style="{DynamicResource statBar}"></Ellipse>
+           
+        </StackPanel>
     </Grid>
 </Window>

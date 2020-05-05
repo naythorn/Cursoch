@@ -415,27 +415,39 @@ namespace Курсоч
                     DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesDescriptorSN = new DoubleAnimationUsingKeyFrames();
                     LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorSN = new LinearDoubleKeyFrame();
                     LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorSN2 = new LinearDoubleKeyFrame();
-                    linearDoubleKeyFrameDescriptorSN.KeyTime = TimeSpan.FromSeconds(0.5);
+                    linearDoubleKeyFrameDescriptorSN.KeyTime = TimeSpan.FromSeconds(1);
                     linearDoubleKeyFrameDescriptorSN.Value = 0;
-                    linearDoubleKeyFrameDescriptorSN2.KeyTime = TimeSpan.FromSeconds(1);
+                    linearDoubleKeyFrameDescriptorSN2.KeyTime = TimeSpan.FromSeconds(1.5);
                     linearDoubleKeyFrameDescriptorSN2.Value = descSNWIDTH;
                     doubleAnimationUsingKeyFramesDescriptorSN.KeyFrames.Add(linearDoubleKeyFrameDescriptorSN);
                     doubleAnimationUsingKeyFramesDescriptorSN.KeyFrames.Add(linearDoubleKeyFrameDescriptorSN2);
                     DescriptorSN.BeginAnimation(Border.WidthProperty, doubleAnimationUsingKeyFramesDescriptorSN);
 
-                    int descTFWIDTH = (int)(105 + 105 * (descriptorTF / 5));
+                    int descTFWIDTH = 210-(int)(105 + 105 * (descriptorTF / 5));
 
                     DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesDescriptorTF = new DoubleAnimationUsingKeyFrames();
                     LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorTF = new LinearDoubleKeyFrame();
                     LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorTF2 = new LinearDoubleKeyFrame();
-                    linearDoubleKeyFrameDescriptorTF.KeyTime = TimeSpan.FromSeconds(0.5);
+                    linearDoubleKeyFrameDescriptorTF.KeyTime = TimeSpan.FromSeconds(1.5);
                     linearDoubleKeyFrameDescriptorTF.Value = 0;
-                    linearDoubleKeyFrameDescriptorTF2.KeyTime = TimeSpan.FromSeconds(1);
+                    linearDoubleKeyFrameDescriptorTF2.KeyTime = TimeSpan.FromSeconds(2);
                     linearDoubleKeyFrameDescriptorTF2.Value = descSNWIDTH;
                     doubleAnimationUsingKeyFramesDescriptorTF.KeyFrames.Add(linearDoubleKeyFrameDescriptorTF);
                     doubleAnimationUsingKeyFramesDescriptorTF.KeyFrames.Add(linearDoubleKeyFrameDescriptorTF2);
                     DescriptorTF.BeginAnimation(Border.WidthProperty, doubleAnimationUsingKeyFramesDescriptorTF);
 
+                    int descJPWIDTH = 210 - (int)(105 + 105 * (descriptorTF / 5));
+
+                    DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesDescriptorJP = new DoubleAnimationUsingKeyFrames();
+                    LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorJP = new LinearDoubleKeyFrame();
+                    LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorJP2 = new LinearDoubleKeyFrame();
+                    linearDoubleKeyFrameDescriptorJP.KeyTime = TimeSpan.FromSeconds(2);
+                    linearDoubleKeyFrameDescriptorJP.Value = 0;
+                    linearDoubleKeyFrameDescriptorJP2.KeyTime = TimeSpan.FromSeconds(2.5);
+                    linearDoubleKeyFrameDescriptorJP2.Value = descSNWIDTH;
+                    doubleAnimationUsingKeyFramesDescriptorJP.KeyFrames.Add(linearDoubleKeyFrameDescriptorJP);
+                    doubleAnimationUsingKeyFramesDescriptorJP.KeyFrames.Add(linearDoubleKeyFrameDescriptorJP2);
+                    DescriptorJP.BeginAnimation(Border.WidthProperty, doubleAnimationUsingKeyFramesDescriptorJP);
 
 
                 }
