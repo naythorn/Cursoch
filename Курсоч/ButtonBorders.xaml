@@ -475,4 +475,72 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <Style x:Key="BorderNextYourQuestion" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#51B787"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=nextYourQuestion, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#53C990"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderSaveYourTest" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#51B787"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=saveTest, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#53C990"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="borderNextCreateTest" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#5DB5B6"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonNextCreateTest, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#6DD3D4"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="borderNextNextCreateTest" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#5DB5B6"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonNextNextCreateTest, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#6DD3D4"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

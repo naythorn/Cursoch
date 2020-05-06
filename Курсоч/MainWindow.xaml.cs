@@ -26,7 +26,8 @@ namespace Курсоч
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        string currentMyTestName;
+        string currentMyTestDescription;
         user CurrentUser = new user();
         double descriptorSN = 0;
         double descriptorEI = 0;
@@ -64,14 +65,12 @@ namespace Курсоч
 
         int questionCounter = 0;
         List<Ellipse> ellipses = new List<Ellipse>();
+        List<Ellipse> ellipsesY = new List<Ellipse>();
+        List<string> yourQuestionsText = new List<string>();
+        int yourQuestionCounter = 0;
 
 
-
-
-
-
-
-    public MainWindow()
+        public MainWindow()
         {
             InitializeComponent();
             ellipses.Add(el1);
@@ -94,7 +93,21 @@ namespace Курсоч
             ellipses.Add(el18);
             ellipses.Add(el19);
             ellipses.Add(el20);
+
+            ellipsesY.Add(el1Y);
+            ellipsesY.Add(el2Y);
+            ellipsesY.Add(el3Y);
+            ellipsesY.Add(el4Y);
+            ellipsesY.Add(el5Y);
+            ellipsesY.Add(el6Y);
+            ellipsesY.Add(el7Y);
+            ellipsesY.Add(el8Y);
+            ellipsesY.Add(el9Y);
+            ellipsesY.Add(el10Y);
+            ellipsesY.Add(el11Y);
+            ellipsesY.Add(el12Y);
         }
+
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -531,6 +544,108 @@ namespace Курсоч
             textBlockSectionAnotherAnimation.To = 0;
             textBlockSectionAnotherAnimation.Duration = TimeSpan.FromSeconds(0.3);
             textBlockSectionAnother.BeginAnimation(TextBlock.OpacityProperty, textBlockSectionAnotherAnimation);
+        }
+
+
+
+        private void buttonCreateTest_Click(object sender, RoutedEventArgs e)
+        {
+            nameCreatePanel.Visibility = Visibility.Visible;
+
+            DoubleAnimation nameCreatePanelAnimation = new DoubleAnimation();
+            nameCreatePanelAnimation.From = nameCreatePanel.Opacity;
+            nameCreatePanelAnimation.To = 1;
+            nameCreatePanelAnimation.Duration = TimeSpan.FromSeconds(0.3);
+            nameCreatePanel.BeginAnimation(StackPanel.OpacityProperty, nameCreatePanelAnimation);
+
+            beginCreatePanel.Visibility = Visibility.Hidden;
+
+
+
+            }
+
+        private void nextYourQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            if (yourQuestionCounter <= 9)
+            {
+                if (yourQuestion.Text != "Введите свой вопрос")
+                {
+                    yourQuestionsText.Add(yourQuestion.Text);
+                    yourQuestion.Text = "Введите свой вопрос";
+                    ellipsesY[yourQuestionCounter].Fill = new SolidColorBrush(Colors.Green);
+                    yourQuestionCounter++;
+                }
+            }
+            else
+            {
+                if (yourQuestion.Text != "Введите свой вопрос")
+                {
+                    yourQuestionsText.Add(yourQuestion.Text);
+                    yourQuestion.Text = "Введите свой вопрос";
+                    ellipsesY[yourQuestionCounter].Fill = new SolidColorBrush(Colors.Green);
+                    saveTest.Visibility = Visibility.Visible;
+                    nextYourQuestion.Visibility = Visibility.Hidden;
+                }
+            }
+          
+        }
+
+        private void buttonMyTests_Click(object sender, RoutedEventArgs e)
+        {
+            beginCreatePanel.Visibility = Visibility.Visible;
+            DoubleAnimation beginCreatePanelAnimation = new DoubleAnimation();
+            beginCreatePanelAnimation.From = beginCreatePanel.Opacity;
+            beginCreatePanelAnimation.To = 1;
+            beginCreatePanelAnimation.Duration = TimeSpan.FromSeconds(0.3);
+            beginCreatePanel.BeginAnimation(StackPanel.OpacityProperty, beginCreatePanelAnimation);
+            MenuPanel.Visibility = Visibility.Hidden;
+        }
+
+        private void buttonNextCreateTest_Click(object sender, RoutedEventArgs e)
+        {
+            if (yourTestName.Text!= "Введите название здесь.") {
+                descriptionCreatePanel.Visibility = Visibility.Visible;
+                currentMyTestName = yourTestName.Text;
+
+                DoubleAnimation descriptionCreatePanelAnimation = new DoubleAnimation();
+                descriptionCreatePanelAnimation.From = descriptionCreatePanel.Opacity;
+                descriptionCreatePanelAnimation.To = 1;
+                descriptionCreatePanelAnimation.Duration = TimeSpan.FromSeconds(0.3);
+                descriptionCreatePanel.BeginAnimation(StackPanel.OpacityProperty, descriptionCreatePanelAnimation);
+
+
+                nameCreatePanel.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void buttonNextNextCreateTest_Click(object sender, RoutedEventArgs e)
+        {
+            if (yourTestDescription.Text != "Введите описание здесь.")
+            {
+                statusDynamicBar.Visibility = Visibility.Visible;
+                nextYourQuestion.Visibility = Visibility.Visible;
+                yourQuestion.Visibility = Visibility.Visible;
+                currentMyTestDescription = yourTestDescription.Text;
+                descriptionCreatePanel.Visibility = Visibility.Hidden;
+
+                DoubleAnimation statusDynamicBarAnimation = new DoubleAnimation();
+                statusDynamicBarAnimation.From = statusDynamicBar.Opacity;
+                statusDynamicBarAnimation.To = 1;
+                statusDynamicBarAnimation.Duration = TimeSpan.FromSeconds(0.3);
+                statusDynamicBar.BeginAnimation(StackPanel.OpacityProperty, statusDynamicBarAnimation);
+
+                DoubleAnimation nextYourQuestionAnimation = new DoubleAnimation();
+                nextYourQuestionAnimation.From = nextYourQuestion.Opacity;
+                nextYourQuestionAnimation.To = 1;
+                nextYourQuestionAnimation.Duration = TimeSpan.FromSeconds(0.3);
+                nextYourQuestion.BeginAnimation(Button.OpacityProperty, nextYourQuestionAnimation);
+
+                DoubleAnimation yourQuestionAnimation = new DoubleAnimation();
+                yourQuestionAnimation.From = nextYourQuestion.Opacity;
+                yourQuestionAnimation.To = 1;
+                yourQuestionAnimation.Duration = TimeSpan.FromSeconds(0.3);
+                yourQuestion.BeginAnimation(TextBox.OpacityProperty, nextYourQuestionAnimation);
+            }
         }
     }
 

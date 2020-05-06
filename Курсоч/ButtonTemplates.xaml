@@ -164,4 +164,24 @@
             <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Создать!"/>
         </Border>
     </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="NextYourQuestion">
+        <Border Style="{DynamicResource BorderNextYourQuestion}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Следующий"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="saveTest">
+        <Border Style="{DynamicResource BorderSaveYourTest}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Сохранить тест"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="NextCreateTest">
+        <Border Style="{DynamicResource borderNextCreateTest}" BorderBrush="Transparent" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Далее"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="NextNextCreateTest">
+        <Border Style="{DynamicResource borderNextNextCreateTest}" BorderBrush="Transparent" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Далее"/>
+        </Border>
+    </ControlTemplate>
 </ResourceDictionary>

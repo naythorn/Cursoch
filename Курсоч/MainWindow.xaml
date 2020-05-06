@@ -24,7 +24,7 @@
             <Run Style="{StaticResource LogoCOLOR2}">PERSONALITIES</Run>
         </TextBlock>
 
-        <Button Panel.ZIndex="300" Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonBegin" Template="{StaticResource Begin}" Style="{DynamicResource RoundButton}" Visibility="Hidden" Content="Начнем!" Click="ButtonBegin_Click" />
+        <Button Panel.ZIndex="300" Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonBegin" Template="{StaticResource Begin}" Style="{DynamicResource RoundButton}" Visibility="Visible" Content="Начнем!" Click="ButtonBegin_Click" />
         <Border Panel.ZIndex="299" x:Name="SignInSignUpPanel" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Style="{StaticResource SignInBorderBox3}"  Visibility="Hidden" Opacity="0">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button x:Name="buttonSignIn" Template="{StaticResource SignIn}"  Style="{DynamicResource RoundButton}" Margin="0,0,0,20" Foreground="White" Click="buttonSignIn_Click"/>
@@ -67,7 +67,7 @@
             <StackPanel Style="{StaticResource StandartStackPanel}" >
                 <Button x:Name="buttonStart" Template="{StaticResource Start}" Style="{DynamicResource RoundButton}" Margin="0,10,0,10" Click="buttonStart_Click" />
                 <Button x:Name="buttonResults" Template="{StaticResource Results}" Style="{DynamicResource RoundButton}" Margin="0,10,0,10"/>
-                <Button x:Name="buttonMyTests" Template="{StaticResource MyTests}" Style="{DynamicResource RoundButton}" Margin="0,10,0,10"/>
+                <Button x:Name="buttonMyTests" Template="{StaticResource MyTests}" Style="{DynamicResource RoundButton}" Margin="0,10,0,10" Click="buttonMyTests_Click"/>
                 <Button x:Name="buttonPersonalities" Template="{StaticResource Personalities}" Style="{DynamicResource RoundButton}" Margin="0,10,0,10" Click="buttonPersonalities_Click" />
             </StackPanel>
         </Border>
@@ -162,24 +162,36 @@
                 </Border  >
             </Border>
         </StackPanel>
-        <Button Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonCreateTest" Template="{StaticResource Create}" Style="{DynamicResource RoundButton}" Visibility="Hidden"/>
-        
-        <Button  Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="buttonNextYourQuestion" Template="{StaticResource NextQuestion}" Style="{DynamicResource RoundButton}" />
-        <TextBox Name="yourQuestion" Style="{DynamicResource yourQuestion}"  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" >Введите текст вопроса</TextBox>
-        <StackPanel x:Name="statusDynamicBar" Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="1" Visibility="Visible">
-            <Ellipse x:Name="el1y"  Style="{DynamicResource statBar}"></Ellipse>
-            <Ellipse x:Name="el2Y" Style="{DynamicResource statBar}"></Ellipse>
-            <Ellipse x:Name="el3Y" Style="{DynamicResource statBar}"></Ellipse>
-            <Ellipse x:Name="el4Y" Style="{DynamicResource statBar}"></Ellipse>
-            <Ellipse x:Name="el5Y" Style="{DynamicResource statBar}"></Ellipse>
-            <Ellipse x:Name="el6Y" Style="{DynamicResource statBar}"></Ellipse>
-            <Ellipse x:Name="el7Y" Style="{DynamicResource statBar}"></Ellipse>
-            <Ellipse x:Name="el8Y" Style="{DynamicResource statBar}"></Ellipse>
-            <Ellipse x:Name="el9Y" Style="{DynamicResource statBar}"></Ellipse>
-            <Ellipse x:Name="el10Y" Style="{DynamicResource statBar}"></Ellipse>
-            <Ellipse x:Name="el11Y" Style="{DynamicResource statBar}"></Ellipse>
-            <Ellipse x:Name="el12Y" Style="{DynamicResource statBar}"></Ellipse>
-           
+        <StackPanel x:Name="beginCreatePanel" Visibility="Hidden" Opacity="0"  Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="1" Grid.Row="1" Style="{DynamicResource StandartStackPanel}">
+            <TextBlock Style="{StaticResource beginNotificationText}" Margin="0,0,0,30">У вас нет сохраненных тестов. Вы можете придумать свой!</TextBlock>
+        <Button Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonCreateTest" Template="{StaticResource Create}" Style="{DynamicResource RoundButton}" Visibility="Visible" Opacity="1"  Click="buttonCreateTest_Click"/>
+        </StackPanel>
+        <Button x:Name="nextYourQuestion" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Template="{StaticResource NextYourQuestion}" Style="{DynamicResource RoundButton}" Visibility="Hidden" Opacity="0" Click="nextYourQuestion_Click" />
+        <TextBox Name="yourQuestion" Style="{DynamicResource yourQuestion}"  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Visibility="Hidden" Opacity="0"  >Введите текст вопроса</TextBox>
+        <StackPanel x:Name="statusDynamicBar" Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Visibility="Hidden" Opacity="0" >
+        <Ellipse x:Name="el1Y"  Style="{DynamicResource statBar}"></Ellipse>
+            <Ellipse x:Name="el2Y" Style="{DynamicResource statBar}" ></Ellipse>
+        <Ellipse x:Name="el3Y" Style="{DynamicResource statBar}" ></Ellipse>
+        <Ellipse x:Name="el4Y" Style="{DynamicResource statBar}"></Ellipse>
+        <Ellipse x:Name="el5Y" Style="{DynamicResource statBar}"></Ellipse>
+        <Ellipse x:Name="el6Y" Style="{DynamicResource statBar}"></Ellipse>
+        <Ellipse x:Name="el7Y" Style="{DynamicResource statBar}"></Ellipse>
+        <Ellipse x:Name="el8Y" Style="{DynamicResource statBar}" ></Ellipse>
+        <Ellipse x:Name="el9Y" Style="{DynamicResource statBar}"></Ellipse>
+        <Ellipse x:Name="el10Y" Style="{DynamicResource statBar}" ></Ellipse>
+        <Ellipse x:Name="el11Y" Style="{DynamicResource statBar}"></Ellipse>
+        <Ellipse x:Name="el12Y" Style="{DynamicResource statBar}" ></Ellipse>
+        </StackPanel>
+        <Button x:Name="saveTest" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Template="{StaticResource saveTest}" Style="{DynamicResource RoundButton}" Visibility="Hidden" Opacity="0" />
+        <StackPanel x:Name="nameCreatePanel" Visibility="Hidden" Opacity="0"  Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="1" Grid.Row="1" Style="{DynamicResource StandartStackPanel}" >
+            <TextBlock Style="{StaticResource beginNotificationText}" Margin="0,0,0,0">Как называется ваш тест?</TextBlock>
+            <TextBox Name="yourTestName" Style="{DynamicResource yourQuestion}">Введите название здесь.</TextBox>
+            <Button Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonNextCreateTest" Template="{StaticResource NextCreateTest}" Style="{DynamicResource RoundButton}" Click="buttonNextCreateTest_Click"/>
+        </StackPanel>
+        <StackPanel x:Name="descriptionCreatePanel" Visibility="Hidden" Opacity="0"  Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="1" Grid.Row="1" Style="{DynamicResource StandartStackPanel}" >
+            <TextBlock Style="{StaticResource beginNotificationText}" Margin="0,0,0,0">О чем ваш тест?</TextBlock>
+            <TextBox Name="yourTestDescription" Style="{DynamicResource yourQuestion}">Введите описание здесь.</TextBox>
+            <Button Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonNextNextCreateTest" Template="{StaticResource NextNextCreateTest}" Style="{DynamicResource RoundButton}" Click="buttonNextNextCreateTest_Click"/>
         </StackPanel>
     </Grid>
 </Window>
