@@ -23,14 +23,16 @@
             <Run Style="{StaticResource LogoCOLOR1}">SIXTEEN</Run>
             <Run Style="{StaticResource LogoCOLOR2}">PERSONALITIES</Run>
         </TextBlock>
-
-        <Button Panel.ZIndex="300" Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonBegin" Template="{StaticResource Begin}" Style="{DynamicResource RoundButton}" Visibility="Hidden" Content="Начнем!" Click="ButtonBegin_Click" />
+        <!--Begin -->
+        <Button Panel.ZIndex="300" Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonBegin" Template="{StaticResource Begin}" Style="{DynamicResource RoundButton}" Visibility="Visible" Content="Начнем!" Click="ButtonBegin_Click" />
+        <!--Sign in or Sign Up -->
         <Border Panel.ZIndex="299" x:Name="SignInSignUpPanel" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Style="{StaticResource SignInBorderBox3}"  Visibility="Hidden" Opacity="0">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button x:Name="buttonSignIn" Template="{StaticResource SignIn}"  Style="{DynamicResource RoundButton}" Margin="0,0,0,20" Foreground="White" Click="buttonSignIn_Click"/>
                 <Button x:Name="buttonSignUp" Template="{StaticResource SignUp}"  Style="{DynamicResource RoundButton}" Margin="0,0,0,0" Foreground="White" Click="buttonSignUp_Click"/>
             </StackPanel>
         </Border>
+        <!--Sign in-->
         <Border Panel.ZIndex="298" x:Name="SignInPanel" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Visibility="Hidden" Style="{StaticResource SignInBorderBox}" Opacity="0">
             <StackPanel Style="{StaticResource StandartStackPanel}" >
                 <Label Style="{StaticResource LabelSignin}"  Content="Логин"/>
@@ -43,6 +45,7 @@
                 <Button  x:Name="buttonSignIn2" Template="{StaticResource SignIn2}" Style="{DynamicResource RoundButton}" Margin="0,5,0,0" Click="buttonSignIn2_Click"/>
             </StackPanel>
         </Border>
+        <!--Sign up-->
         <Border  x:Name="SignUpPanel" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Visibility="Hidden" Style="{StaticResource SignUpBorderBox}" Opacity="0" >
             <StackPanel Style="{StaticResource StandartStackPanel}" >
                 <Label Style="{StaticResource LabelSignin}"  Content="Логин"/>
@@ -57,12 +60,14 @@
                 <Button  x:Name="buttonSignUp2" Template="{StaticResource SignUp2}" Style="{DynamicResource RoundButton}" Margin="0,5,0,0" Click="buttonSignUp2_Click"/>
             </StackPanel>
         </Border>
+        <!--Successful Reg-->
         <Border  x:Name="SuccessfulRegistrationPanel" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Visibility="Hidden" Style="{StaticResource SignUpSuccessBox}" Opacity="0">
             <StackPanel Style="{StaticResource StandartStackPanel}" >
                 <Label Style="{StaticResource LabelSuccess}"  Content="Вы успешно зарегистрированы!"/>
                 <Button  x:Name="buttonNext" Template="{StaticResource Next}" Style="{DynamicResource RoundButton}" Margin="0,5,0,0" Click="buttonNext_Click"/>
             </StackPanel>
         </Border>
+        <!--Menu-->
         <Border Panel.ZIndex="297"  x:Name="MenuPanel" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Visibility="Hidden" Style="{StaticResource MenuBorderBox}" Opacity="0" >
             <StackPanel Style="{StaticResource StandartStackPanel}" >
                 <Button x:Name="buttonStart" Template="{StaticResource Start}" Style="{DynamicResource RoundButton}" Margin="0,10,0,10" Click="buttonStart_Click" />
@@ -71,14 +76,19 @@
                 <Button x:Name="buttonPersonalities" Template="{StaticResource Personalities}" Style="{DynamicResource RoundButton}" Margin="0,10,0,10" Click="buttonPersonalities_Click" />
             </StackPanel>
         </Border>
-        <Button x:Name="buttonAnalytics" Template="{StaticResource Analytics}" Style="{DynamicResource CircleButton}" Grid.Row="1" Grid.Column="1" Visibility="Hidden" Margin="50,0,0,20"/>
-        <Button  x:Name="buttonGuardians" Template="{StaticResource Guardians}" Style="{DynamicResource CircleButton}" Grid.Row="2" Grid.Column="1" Visibility="Hidden" Margin="50,20,0,0"/>
-        <Button  x:Name="buttonCrawlers" Template="{StaticResource Crawlers}" Style="{DynamicResource CircleButton}" Grid.Row="1" Grid.Column="2" Visibility="Hidden" Margin="0,0,50,20"/>
-        <Button  x:Name="buttonDiplomats" Template="{StaticResource Diplomats}" Style="{DynamicResource CircleButton}" Grid.Row="2" Grid.Column="2" Visibility="Hidden" Margin="0,20,50,0"/>
-
-        <Button  x:Name="panelAnalytics2" Template="{StaticResource Analytic1}"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Visibility="Hidden"/>
-        <Button  x:Name="panelAnalytics3" Template="{StaticResource Analytic1}"   Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" Visibility="Hidden"/>
-        <Button  x:Name="panelAnalytics4" Template="{StaticResource Analytic1}"  Grid.Row="1" Grid.RowSpan="2" Grid.Column="3" Visibility="Hidden"/>
+        <!--Persons-->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{StaticResource StandartStackPanel}" Visibility="Hidden" Opacity="1">
+            <StackPanel >
+                <Button x:Name="buttonAnalytics" Template="{StaticResource Analytics}" Style="{DynamicResource CircleButton}"  Margin="25,25,25,25"/>
+                <Button  x:Name="buttonGuardians" Template="{StaticResource Guardians}" Style="{DynamicResource CircleButton}" Margin="25,25,25,25"/>
+            </StackPanel>
+            <StackPanel>
+                <Button  x:Name="buttonCrawlers" Template="{StaticResource Crawlers}" Style="{DynamicResource CircleButton}" Margin="25,25,25,25"/>
+                <Button  x:Name="buttonDiplomats" Template="{StaticResource Diplomats}" Style="{DynamicResource CircleButton}" Margin="25,25,25,25"/>
+            </StackPanel>
+        </StackPanel>
+        <!--Analytics-->
+      
 
         <StackPanel x:Name="statusBar" Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0" Visibility="Hidden">
             <Ellipse x:Name="el1"  Style="{DynamicResource statBar}"></Ellipse>
@@ -193,73 +203,69 @@
             <TextBox Name="yourTestDescription" Style="{DynamicResource yourQuestion}">Введите описание здесь.</TextBox>
             <Button Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonNextNextCreateTest" Template="{StaticResource NextNextCreateTest}" Style="{DynamicResource RoundButton}" Click="buttonNextNextCreateTest_Click"/>
         </StackPanel>
-        <StackPanel x:Name="resultsYourTestPanel"  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Style="{DynamicResource StandartStackPanel}" Visibility="Visible">
-            <StackPanel x:Name="result1" Opacity="1" Orientation="Horizontal" VerticalAlignment="Center">
+        <StackPanel x:Name="resultsYourTestPanel"  Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Style="{DynamicResource StandartStackPanel}" Visibility="Hidden">
+            <StackPanel x:Name="result1" Opacity="0" Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Style="{StaticResource resultDescriptorType}">ABC</TextBlock>
                 <TextBox x:Name="resultNameABC" Style="{StaticResource resultName}"></TextBox>
                 <TextBox  x:Name="resultDescriptionABC" Style="{StaticResource resultDescription}"></TextBox>
-                <Border Style="{StaticResource Clip}">
-                    <Image Source="63558.png"></Image></Border>
-                <Image x:Name="resultImageABC" Style="{StaticResource ClipImage}"></Image>
+                <Border  x:Name="ind1" Style="{StaticResource Clip}"> </Border>
             </StackPanel>
             <StackPanel  x:Name="result2" Opacity="0"  Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Style="{StaticResource resultDescriptorType}">DBC</TextBlock>
                 <TextBox x:Name="resultNameDBC"  Style="{StaticResource resultName}"></TextBox>
-                <TextBox Style="{StaticResource resultDescription}"></TextBox>
-                <Border Style="{StaticResource Clip}"></Border>
-                <Image Style="{StaticResource ClipImage}"></Image>
+                <TextBox   x:Name="resultDescriptionDBC" Style="{StaticResource resultDescription}"></TextBox>
+                <Border  x:Name="ind2" Style="{StaticResource Clip}"></Border>
             </StackPanel>
             <StackPanel  x:Name="result3" Opacity="0"  Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Style="{StaticResource resultDescriptorType}">AEC</TextBlock>
                 <TextBox  x:Name="resultNameAEC"  Style="{StaticResource resultName}"></TextBox>
-                <TextBox Style="{StaticResource resultDescription}"></TextBox>
-                <Border Style="{StaticResource Clip}"></Border>
+                <TextBox   x:Name="resultDescriptionAEC" Style="{StaticResource resultDescription}"></TextBox>
+                <Border x:Name="ind3"  Style="{StaticResource Clip}"></Border>
                 <Image Style="{StaticResource ClipImage}"></Image>
             </StackPanel>
             <StackPanel  x:Name="result4" Opacity="0" Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Style="{StaticResource resultDescriptorType}">DEC</TextBlock>
                 <TextBox x:Name="resultNameDEC"  Style="{StaticResource resultName}"></TextBox>
-                <TextBox Style="{StaticResource resultDescription}"></TextBox>
-                <Border Style="{StaticResource Clip}"></Border>
+                <TextBox   x:Name="resultDescriptionDEC"  Style="{StaticResource resultDescription}"></TextBox>
+                <Border  x:Name="ind4"   Style="{StaticResource Clip}"></Border>
                 <Image Style="{StaticResource ClipImage}"></Image>
             </StackPanel>
             <StackPanel  x:Name="result5" Opacity="0" Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Style="{StaticResource resultDescriptorType}">AEF</TextBlock>
                 <TextBox x:Name="resultNameAEF"  Style="{StaticResource resultName}"></TextBox>
-                <TextBox Style="{StaticResource resultDescription}"></TextBox>
-                <Border Style="{StaticResource Clip}"></Border>
+                <TextBox   x:Name="resultDescriptionAEF" Style="{StaticResource resultDescription}"></TextBox>
+                <Border x:Name="ind5"  Style="{StaticResource Clip}"></Border>
                 <Image Style="{StaticResource ClipImage}"></Image>
             </StackPanel>
             <StackPanel  x:Name="result6" Opacity="0" Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Style="{StaticResource resultDescriptorType}">DEF</TextBlock>
                 <TextBox x:Name="resultNameDEF"  Style="{StaticResource resultName}"></TextBox>
-                <TextBox Style="{StaticResource resultDescription}"></TextBox>
-                <Border Style="{StaticResource Clip}"></Border>
+                <TextBox   x:Name="resultDescriptionDEF" Style="{StaticResource resultDescription}"></TextBox>
+                <Border x:Name="ind6"  Style="{StaticResource Clip}"></Border>
                 <Image Style="{StaticResource ClipImage}"></Image>
             </StackPanel>
             <StackPanel  x:Name="result7" Opacity="0"  Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Style="{StaticResource resultDescriptorType}">ABF</TextBlock>
                 <TextBox x:Name="resultNameABF"  Style="{StaticResource resultName}"></TextBox>
-                <TextBox Style="{StaticResource resultDescription}"></TextBox>
-                <Border Style="{StaticResource Clip}"></Border>
+                <TextBox   x:Name="resultDescriptionABF" Style="{StaticResource resultDescription}"></TextBox>
+                <Border x:Name="ind7"  Style="{StaticResource Clip}"></Border>
                 <Image Style="{StaticResource ClipImage}"></Image>
             </StackPanel>
             <StackPanel  x:Name="result8" Opacity="0"  Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Style="{StaticResource resultDescriptorType}">DBF</TextBlock>
                 <TextBox x:Name="resultNameDBF"  Style="{StaticResource resultName}"></TextBox>
-                <TextBox Style="{StaticResource resultDescription}"></TextBox>
-                <Border Style="{StaticResource Clip}"></Border>
+                <TextBox   x:Name="resultDescriptionDBF" Style="{StaticResource resultDescription}"></TextBox>
+                <Border x:Name="ind8" Style="{StaticResource Clip}"></Border>
                 <Image Style="{StaticResource ClipImage}"></Image>
             </StackPanel>
-            <StackPanel  x:Name="result9" Opacity="0"  Orientation="Horizontal" VerticalAlignment="Center">
-                <TextBlock Style="{StaticResource resultDescriptorType}">AFC</TextBlock>
-                <TextBox x:Name="resultNameAFC" Style="{StaticResource resultName}"></TextBox>
-                <TextBox Style="{StaticResource resultDescription}"></TextBox>
-                <Border Style="{StaticResource Clip}"></Border>
-                <Image Style="{StaticResource ClipImage}"></Image>
-            </StackPanel>
+
         </StackPanel>
-        <Button x:Name="toResultsYourTest" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Template="{StaticResource toResultsYourTest}" Style="{DynamicResource RoundButton}" Visibility="Visible" Opacity="1" Click="toResultsYourTest_Click" />
-        <Button x:Name="saveTest" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Template="{StaticResource saveTest}" Style="{DynamicResource RoundButton}" Visibility="Hidden" Opacity="0" Click="saveTest_Click" />
+        <Button x:Name="toResultsYourTest" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Template="{StaticResource toResultsYourTest}" Style="{DynamicResource RoundButton}" Visibility="Hidden" Opacity="1" Click="toResultsYourTest_Click" />
+        <Button x:Name="saveTest" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Template="{StaticResource saveTest}" Style="{DynamicResource RoundButton}" Visibility="Hidden" Opacity="1" Click="saveTest_Click" />
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="myTestsPanel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" ></StackPanel>
+
+        <StackPanel Panel.ZIndex="0" Style="{StaticResource StandartStackPanel}" x:Name="descriptionMessagePanel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Opacity="0" Visibility="Hidden" >
+            <TextBlock x:Name="descriptionNotification" Style="{StaticResource beginNotificationText}" >Отвечайте честно, даже если вам не нравится ответ. Постарайтесь не давать нейтральных ответов.</TextBlock>
+        </StackPanel>
     </Grid>
 </Window>

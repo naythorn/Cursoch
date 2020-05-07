@@ -4,6 +4,8 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -743,17 +745,7 @@ namespace Курсоч
             doubleAnimationUsingKeyFramesResult8.KeyFrames.Add(linearDoubleKeyFrameResult82);
             result8.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesResult8);
 
-            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesResult9 = new DoubleAnimationUsingKeyFrames();
-            LinearDoubleKeyFrame linearDoubleKeyFrameResult9 = new LinearDoubleKeyFrame();
-            LinearDoubleKeyFrame linearDoubleKeyFrameResult92 = new LinearDoubleKeyFrame();
-            linearDoubleKeyFrameResult9.KeyTime = TimeSpan.FromSeconds(1.6);
-            linearDoubleKeyFrameResult9.Value = result9.Opacity;
-            linearDoubleKeyFrameResult92.KeyTime = TimeSpan.FromSeconds(1.8);
-            linearDoubleKeyFrameResult92.Value = 1;
-            doubleAnimationUsingKeyFramesResult9.KeyFrames.Add(linearDoubleKeyFrameResult9);
-            doubleAnimationUsingKeyFramesResult9.KeyFrames.Add(linearDoubleKeyFrameResult92);
-            result9.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesResult9);
-
+          
             DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramessaveTest = new DoubleAnimationUsingKeyFrames();
             LinearDoubleKeyFrame linearDoubleKeyFramesaveTest = new LinearDoubleKeyFrame();
             LinearDoubleKeyFrame linearDoubleKeyFramesaveTest2 = new LinearDoubleKeyFrame();
@@ -770,21 +762,183 @@ namespace Курсоч
 
         private void saveTest_Click(object sender, RoutedEventArgs e)
         {
+            //bool flag = true;
+
+            //ind1.Background = new SolidColorBrush(Colors.Green);
+            //ind2.Background = new SolidColorBrush(Colors.Green);
+            //ind3.Background = new SolidColorBrush(Colors.Green);
+            //ind4.Background = new SolidColorBrush(Colors.Green);
+            //ind5.Background = new SolidColorBrush(Colors.Green);
+            //ind6.Background = new SolidColorBrush(Colors.Green);
+            //ind7.Background = new SolidColorBrush(Colors.Green);
+            //ind8.Background = new SolidColorBrush(Colors.Green);
+
+            //if (resultNameABC.Text == "") { flag = false; ind1.Background = new SolidColorBrush(Colors.Red);  };
+            //if (resultNameDBC.Text == "") { flag = false; ind2.Background = new SolidColorBrush(Colors.Red); };
+            //if (resultNameAEC.Text == "") { flag = false; ind3.Background = new SolidColorBrush(Colors.Red); };
+            //if (resultNameDEC.Text == "") { flag = false; ind4.Background = new SolidColorBrush(Colors.Red); };
+            //if (resultNameAEF.Text == "") { flag = false; ind5.Background = new SolidColorBrush(Colors.Red); };
+            //if (resultNameDEF.Text == "") { flag = false; ind6.Background = new SolidColorBrush(Colors.Red); };
+            //if (resultNameABF.Text == "") { flag = false; ind7.Background = new SolidColorBrush(Colors.Red); };
+            //if (resultNameDBF.Text == "") { flag = false; ind8.Background = new SolidColorBrush(Colors.Red); };
+
+            //if (resultDescriptionABC.Text == "") { flag = false; ind1.Background = new SolidColorBrush(Colors.Red); };
+            //if (resultDescriptionDBC.Text == "") { flag = false; ind2.Background = new SolidColorBrush(Colors.Red); };
+            //if (resultDescriptionAEC.Text == "") { flag = false; ind3.Background = new SolidColorBrush(Colors.Red); };
+            //if (resultDescriptionDEC.Text == "") { flag = false; ind4.Background = new SolidColorBrush(Colors.Red); };
+            //if (resultDescriptionAEF.Text == "") { flag = false; ind5.Background = new SolidColorBrush(Colors.Red); };
+            //if (resultDescriptionDEF.Text == "") { flag = false; ind6.Background = new SolidColorBrush(Colors.Red); };
+            //if (resultDescriptionABF.Text == "") { flag = false; ind7.Background = new SolidColorBrush(Colors.Red); };
+            //if (resultDescriptionDBF.Text == "") { flag = false; ind8.Background = new SolidColorBrush(Colors.Red); };
+            //if (flag)
+            //{
+                using (sixteenPersDB db = new sixteenPersDB())
+                {
+                    //my_test MyTest = new my_test { test_name = currentMyTestName, host_login = CurrentUser.login, description = currentMyTestDescription };
+                    //db.my_test.Add(MyTest);
+                    //for (int i = 0; i < 11; i++)
+                    //{
+                    //    question myQuestion = new question() { question_number = i, test_name = currentMyTestName, text = yourQuestionsText[i] };
+                    //    db.questions.Add(myQuestion);
+                    //}
+                    //db.my_test_decriptor.Add(new my_test_decriptor() { name_descriptor = resultNameABC.Text, test_name = currentMyTestName, description = resultDescriptionABC.Text, type_descriptor = "ABC" });
+                    //db.my_test_decriptor.Add(new my_test_decriptor() { name_descriptor = resultNameDBC.Text, test_name = currentMyTestName, description = resultDescriptionDBC.Text, type_descriptor = "DBC" });
+                    //db.my_test_decriptor.Add(new my_test_decriptor() { name_descriptor = resultNameAEC.Text, test_name = currentMyTestName, description = resultDescriptionAEC.Text, type_descriptor = "AEC" });
+                    //db.my_test_decriptor.Add(new my_test_decriptor() { name_descriptor = resultNameDEC.Text, test_name = currentMyTestName, description = resultDescriptionDEC.Text, type_descriptor = "DEC" });
+                    //db.my_test_decriptor.Add(new my_test_decriptor() { name_descriptor = resultNameAEF.Text, test_name = currentMyTestName, description = resultDescriptionAEF.Text, type_descriptor = "AEF" });
+                    //db.my_test_decriptor.Add(new my_test_decriptor() { name_descriptor = resultNameDEF.Text, test_name = currentMyTestName, description = resultDescriptionDEF.Text, type_descriptor = "DEF" });
+                    //db.my_test_decriptor.Add(new my_test_decriptor() { name_descriptor = resultNameABF.Text, test_name = currentMyTestName, description = resultDescriptionABF.Text, type_descriptor = "ABF" });
+                    //db.my_test_decriptor.Add(new my_test_decriptor() { name_descriptor = resultNameDBF.Text, test_name = currentMyTestName, description = resultDescriptionDBF.Text, type_descriptor = "DBF" });
+
+                    //db.SaveChanges();
+
+
+                    foreach(my_test a in db.my_test) {
+
+
+
+                   
+                    TextBlock testName = new TextBlock();
+                    testName.Text = a.test_name;
+                    testName.Foreground= new SolidColorBrush(Colors.White);
+                    testName.FontSize = 50 / db.my_test.Count();
+                    testName.FontWeight = FontWeights.Bold;
+                    testName.HorizontalAlignment = HorizontalAlignment.Center;
+                    testName.VerticalAlignment = VerticalAlignment.Center;
+                    Border testBlock = new Border();
+                    testBlock.Width = 350/ db.my_test.Count();
+                    testBlock.Height = 200/db.my_test.Count();
+                    testBlock.Background = new SolidColorBrush(Colors.MediumSeaGreen);
+                    testBlock.Margin = new Thickness(5);
+                    testBlock.CornerRadius=new CornerRadius(200 / db.my_test.Count()/3);
+
+                   
+                    testBlock.Child = testName;
+                    testBlock.HorizontalAlignment = HorizontalAlignment.Center;
+                    testBlock.VerticalAlignment = VerticalAlignment.Center;
+                    myTestsPanel.Children.Add(testBlock);
+                    testBlock.MouseDown += myChosenTest_MouseDown;
+
+                    }
+                  
+                }
+            //}
+
+        }
+
+        private void myChosenTest_MouseDown(object sender, MouseButtonEventArgs e)
+        {
             using (sixteenPersDB db = new sixteenPersDB())
             {
-                my_test MyTest = new my_test { test_name = currentMyTestName, host_login = CurrentUser.login, description = currentMyTestDescription };
-                db.my_test.Add(MyTest);
-                for (int i = 0; i < 11;i++)
+                if (sender is Border)
                 {
-                    question myQuestion = new question() { question_number = i, test_name = currentMyTestName, text = yourQuestionsText[i] };
-                    db.questions.Add(myQuestion);
+                    Border v = (Border)sender;
+                    if (v.Child is TextBlock)
+                    {
+                        TextBlock t = (TextBlock)v.Child;
+                        descriptionMessagePanel.Visibility = Visibility.Visible;
+                        foreach(my_test m in db.my_test)
+                        {
+                            if (m.test_name == t.Text)
+                            {
+                                descriptionNotification.Text = m.description;
+
+                                foreach(question q in db.questions)
+                                {
+                                    if (q.question_number == 0)
+                                    {
+                                        question.Text = q.text;
+                                    }
+                                }
+                            }
+                        }
+                        DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFrames = new DoubleAnimationUsingKeyFrames();
+                        LinearDoubleKeyFrame linearDoubleKeyFrame = new LinearDoubleKeyFrame();
+                        LinearDoubleKeyFrame linearDoubleKeyFrame2 = new LinearDoubleKeyFrame();
+                        LinearDoubleKeyFrame linearDoubleKeyFrame3 = new LinearDoubleKeyFrame();
+                        LinearDoubleKeyFrame linearDoubleKeyFrame4 = new LinearDoubleKeyFrame();
+                        linearDoubleKeyFrame.KeyTime = TimeSpan.FromSeconds(0);
+                        linearDoubleKeyFrame.Value = 0;
+                        linearDoubleKeyFrame2.KeyTime = TimeSpan.FromSeconds(0.3);
+                        linearDoubleKeyFrame2.Value = 1;
+                        linearDoubleKeyFrame3.KeyTime = TimeSpan.FromSeconds(3.5);
+                        linearDoubleKeyFrame3.Value = 1;
+                        linearDoubleKeyFrame4.KeyTime = TimeSpan.FromSeconds(3.8);
+                        linearDoubleKeyFrame4.Value = 0;
+                        doubleAnimationUsingKeyFrames.KeyFrames.Add(linearDoubleKeyFrame);
+                        doubleAnimationUsingKeyFrames.KeyFrames.Add(linearDoubleKeyFrame2);
+                        doubleAnimationUsingKeyFrames.KeyFrames.Add(linearDoubleKeyFrame3);
+                        doubleAnimationUsingKeyFrames.KeyFrames.Add(linearDoubleKeyFrame4);
+                        descriptionNotification.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFrames);
+                        descriptionNotification.Visibility = Visibility.Visible;
+                        DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesQuestionRadioPanel = new DoubleAnimationUsingKeyFrames();
+                        LinearDoubleKeyFrame linearDoubleKeyFrameQuestion = new LinearDoubleKeyFrame();
+                        LinearDoubleKeyFrame linearDoubleKeyFrameQuestion2 = new LinearDoubleKeyFrame();
+                        linearDoubleKeyFrameQuestion.KeyTime = TimeSpan.FromSeconds(3.8);
+                        linearDoubleKeyFrameQuestion.Value = 0;
+                        linearDoubleKeyFrameQuestion2.KeyTime = TimeSpan.FromSeconds(4.3);
+                        linearDoubleKeyFrameQuestion2.Value = 1;
+                        doubleAnimationUsingKeyFramesQuestionRadioPanel.KeyFrames.Add(linearDoubleKeyFrameQuestion);
+                        doubleAnimationUsingKeyFramesQuestionRadioPanel.KeyFrames.Add(linearDoubleKeyFrameQuestion2);
+                        radioPanel.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesQuestionRadioPanel);
+                        radioPanel.Visibility = Visibility.Visible;
+                        DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesQuestion = new DoubleAnimationUsingKeyFrames();
+                        LinearDoubleKeyFrame linearDoubleKeyFrameQuestion3 = new LinearDoubleKeyFrame();
+                        LinearDoubleKeyFrame linearDoubleKeyFrameQuestion4 = new LinearDoubleKeyFrame();
+                        linearDoubleKeyFrameQuestion3.KeyTime = TimeSpan.FromSeconds(3.8);
+                        linearDoubleKeyFrameQuestion3.Value = 0;
+                        linearDoubleKeyFrameQuestion4.KeyTime = TimeSpan.FromSeconds(4.3);
+                        linearDoubleKeyFrameQuestion4.Value = 1;
+                        doubleAnimationUsingKeyFramesQuestion.KeyFrames.Add(linearDoubleKeyFrameQuestion3);
+                        doubleAnimationUsingKeyFramesQuestion.KeyFrames.Add(linearDoubleKeyFrameQuestion4);
+                        question.BeginAnimation(TextBlock.OpacityProperty, doubleAnimationUsingKeyFramesQuestion);
+
+
+                        DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesNextQuestion = new DoubleAnimationUsingKeyFrames();
+                        LinearDoubleKeyFrame linearDoubleKeyFrameQuestion5 = new LinearDoubleKeyFrame();
+                        LinearDoubleKeyFrame linearDoubleKeyFrameQuestion6 = new LinearDoubleKeyFrame();
+                        linearDoubleKeyFrameQuestion5.KeyTime = TimeSpan.FromSeconds(3.8);
+                        linearDoubleKeyFrameQuestion5.Value = 0;
+                        linearDoubleKeyFrameQuestion6.KeyTime = TimeSpan.FromSeconds(4.3);
+                        linearDoubleKeyFrameQuestion6.Value = 1;
+                        doubleAnimationUsingKeyFramesNextQuestion.KeyFrames.Add(linearDoubleKeyFrameQuestion5);
+                        doubleAnimationUsingKeyFramesNextQuestion.KeyFrames.Add(linearDoubleKeyFrameQuestion6);
+                        buttonNextQuestion.BeginAnimation(Button.OpacityProperty, doubleAnimationUsingKeyFramesNextQuestion);
+
+                        DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesStatusDynamicBar = new DoubleAnimationUsingKeyFrames();
+                        LinearDoubleKeyFrame linearDoubleKeyFrameQuestion7 = new LinearDoubleKeyFrame();
+                        LinearDoubleKeyFrame linearDoubleKeyFrameQuestion8 = new LinearDoubleKeyFrame();
+                        linearDoubleKeyFrameQuestion7.KeyTime = TimeSpan.FromSeconds(3.8);
+                        linearDoubleKeyFrameQuestion7.Value = 0;
+                        linearDoubleKeyFrameQuestion8.KeyTime = TimeSpan.FromSeconds(4.3);
+                        linearDoubleKeyFrameQuestion8.Value = 1;
+                        doubleAnimationUsingKeyFramesStatusDynamicBar.KeyFrames.Add(linearDoubleKeyFrameQuestion7);
+                        doubleAnimationUsingKeyFramesStatusDynamicBar.KeyFrames.Add(linearDoubleKeyFrameQuestion8);
+                        statusDynamicBar.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesStatusDynamicBar);
+                    }
                 }
-                my_test_decriptor MD1 = new my_test_decriptor() { name_descriptor= "ABC"+resultNameABC.Text, test_name=currentMyTestName,description=resultDescriptionABC.Text,pic=resultImageABC.Source.};
-            
             }
-
-
-            }
+        }
     }
 
 
