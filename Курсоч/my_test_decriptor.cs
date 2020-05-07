@@ -18,8 +18,8 @@ namespace Курсоч
 
         public string description { get; set; }
 
-        [Column(TypeName = "image")]
-        public byte[] pic { get; set; }
+        [StringLength(3)]
+        public string type_descriptor { get; set; }
 
         public virtual my_test my_test { get; set; }
     }

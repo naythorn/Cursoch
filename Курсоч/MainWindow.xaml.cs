@@ -583,7 +583,7 @@ namespace Курсоч
                     yourQuestionsText.Add(yourQuestion.Text);
                     yourQuestion.Text = "Введите свой вопрос";
                     ellipsesY[yourQuestionCounter].Fill = new SolidColorBrush(Colors.Green);
-                    saveTest.Visibility = Visibility.Visible;
+                    toResultsYourTest.Visibility = Visibility.Visible;
                     nextYourQuestion.Visibility = Visibility.Hidden;
                 }
             }
@@ -647,6 +647,144 @@ namespace Курсоч
                 yourQuestion.BeginAnimation(TextBox.OpacityProperty, nextYourQuestionAnimation);
             }
         }
+
+        private void toResultsYourTest_Click(object sender, RoutedEventArgs e)
+        {
+            resultsYourTestPanel.Visibility = Visibility.Visible;
+            saveTest.Visibility = Visibility.Visible;
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesResult1 = new DoubleAnimationUsingKeyFrames();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult1 = new LinearDoubleKeyFrame();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult12 = new LinearDoubleKeyFrame();
+            linearDoubleKeyFrameResult1.KeyTime = TimeSpan.FromSeconds(0);
+            linearDoubleKeyFrameResult1.Value = result1.Opacity;
+            linearDoubleKeyFrameResult12.KeyTime = TimeSpan.FromSeconds(0.2);
+            linearDoubleKeyFrameResult12.Value = 1;
+            doubleAnimationUsingKeyFramesResult1.KeyFrames.Add(linearDoubleKeyFrameResult1);
+            doubleAnimationUsingKeyFramesResult1.KeyFrames.Add(linearDoubleKeyFrameResult12);
+            result1.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesResult1);
+
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesResult2 = new DoubleAnimationUsingKeyFrames();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult2 = new LinearDoubleKeyFrame();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult22 = new LinearDoubleKeyFrame();
+            linearDoubleKeyFrameResult2.KeyTime = TimeSpan.FromSeconds(0.2);
+            linearDoubleKeyFrameResult2.Value = result2.Opacity;
+            linearDoubleKeyFrameResult22.KeyTime = TimeSpan.FromSeconds(0.4);
+            linearDoubleKeyFrameResult22.Value = 1;
+            doubleAnimationUsingKeyFramesResult2.KeyFrames.Add(linearDoubleKeyFrameResult2);
+            doubleAnimationUsingKeyFramesResult2.KeyFrames.Add(linearDoubleKeyFrameResult22);
+            result2.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesResult2);
+
+
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesResult3 = new DoubleAnimationUsingKeyFrames();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult3 = new LinearDoubleKeyFrame();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult32 = new LinearDoubleKeyFrame();
+            linearDoubleKeyFrameResult3.KeyTime = TimeSpan.FromSeconds(0.4);
+            linearDoubleKeyFrameResult3.Value = result3.Opacity;
+            linearDoubleKeyFrameResult32.KeyTime = TimeSpan.FromSeconds(0.6);
+            linearDoubleKeyFrameResult32.Value = 1;
+            doubleAnimationUsingKeyFramesResult3.KeyFrames.Add(linearDoubleKeyFrameResult3);
+            doubleAnimationUsingKeyFramesResult3.KeyFrames.Add(linearDoubleKeyFrameResult32);
+            result3.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesResult3);
+
+
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesResult4 = new DoubleAnimationUsingKeyFrames();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult4 = new LinearDoubleKeyFrame();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult42 = new LinearDoubleKeyFrame();
+            linearDoubleKeyFrameResult4.KeyTime = TimeSpan.FromSeconds(0.6);
+            linearDoubleKeyFrameResult4.Value = result4.Opacity;
+            linearDoubleKeyFrameResult42.KeyTime = TimeSpan.FromSeconds(0.8);
+            linearDoubleKeyFrameResult42.Value = 1;
+            doubleAnimationUsingKeyFramesResult4.KeyFrames.Add(linearDoubleKeyFrameResult4);
+            doubleAnimationUsingKeyFramesResult4.KeyFrames.Add(linearDoubleKeyFrameResult42);
+            result4.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesResult4);
+
+
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesResult5 = new DoubleAnimationUsingKeyFrames();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult5 = new LinearDoubleKeyFrame();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult52 = new LinearDoubleKeyFrame();
+            linearDoubleKeyFrameResult5.KeyTime = TimeSpan.FromSeconds(0.8);
+            linearDoubleKeyFrameResult5.Value = result5.Opacity;
+            linearDoubleKeyFrameResult52.KeyTime = TimeSpan.FromSeconds(1);
+            linearDoubleKeyFrameResult52.Value = 1;
+            doubleAnimationUsingKeyFramesResult5.KeyFrames.Add(linearDoubleKeyFrameResult5);
+            doubleAnimationUsingKeyFramesResult5.KeyFrames.Add(linearDoubleKeyFrameResult52);
+            result5.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesResult5);
+
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesResult6 = new DoubleAnimationUsingKeyFrames();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult6 = new LinearDoubleKeyFrame();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult62 = new LinearDoubleKeyFrame();
+            linearDoubleKeyFrameResult6.KeyTime = TimeSpan.FromSeconds(1);
+            linearDoubleKeyFrameResult6.Value = result6.Opacity;
+            linearDoubleKeyFrameResult62.KeyTime = TimeSpan.FromSeconds(1.2);
+            linearDoubleKeyFrameResult62.Value = 1;
+            doubleAnimationUsingKeyFramesResult6.KeyFrames.Add(linearDoubleKeyFrameResult6);
+            doubleAnimationUsingKeyFramesResult6.KeyFrames.Add(linearDoubleKeyFrameResult62);
+            result6.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesResult6);
+
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesResult7 = new DoubleAnimationUsingKeyFrames();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult7 = new LinearDoubleKeyFrame();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult72 = new LinearDoubleKeyFrame();
+            linearDoubleKeyFrameResult7.KeyTime = TimeSpan.FromSeconds(1.2);
+            linearDoubleKeyFrameResult7.Value = result7.Opacity;
+            linearDoubleKeyFrameResult72.KeyTime = TimeSpan.FromSeconds(1.4);
+            linearDoubleKeyFrameResult72.Value = 1;
+            doubleAnimationUsingKeyFramesResult7.KeyFrames.Add(linearDoubleKeyFrameResult7);
+            doubleAnimationUsingKeyFramesResult7.KeyFrames.Add(linearDoubleKeyFrameResult72);
+            result7.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesResult7);
+
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesResult8 = new DoubleAnimationUsingKeyFrames();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult8 = new LinearDoubleKeyFrame();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult82 = new LinearDoubleKeyFrame();
+            linearDoubleKeyFrameResult8.KeyTime = TimeSpan.FromSeconds(1.4);
+            linearDoubleKeyFrameResult8.Value = result8.Opacity;
+            linearDoubleKeyFrameResult82.KeyTime = TimeSpan.FromSeconds(1.6);
+            linearDoubleKeyFrameResult82.Value = 1;
+            doubleAnimationUsingKeyFramesResult8.KeyFrames.Add(linearDoubleKeyFrameResult8);
+            doubleAnimationUsingKeyFramesResult8.KeyFrames.Add(linearDoubleKeyFrameResult82);
+            result8.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesResult8);
+
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesResult9 = new DoubleAnimationUsingKeyFrames();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult9 = new LinearDoubleKeyFrame();
+            LinearDoubleKeyFrame linearDoubleKeyFrameResult92 = new LinearDoubleKeyFrame();
+            linearDoubleKeyFrameResult9.KeyTime = TimeSpan.FromSeconds(1.6);
+            linearDoubleKeyFrameResult9.Value = result9.Opacity;
+            linearDoubleKeyFrameResult92.KeyTime = TimeSpan.FromSeconds(1.8);
+            linearDoubleKeyFrameResult92.Value = 1;
+            doubleAnimationUsingKeyFramesResult9.KeyFrames.Add(linearDoubleKeyFrameResult9);
+            doubleAnimationUsingKeyFramesResult9.KeyFrames.Add(linearDoubleKeyFrameResult92);
+            result9.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesResult9);
+
+            DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramessaveTest = new DoubleAnimationUsingKeyFrames();
+            LinearDoubleKeyFrame linearDoubleKeyFramesaveTest = new LinearDoubleKeyFrame();
+            LinearDoubleKeyFrame linearDoubleKeyFramesaveTest2 = new LinearDoubleKeyFrame();
+            linearDoubleKeyFramesaveTest.KeyTime = TimeSpan.FromSeconds(1.8);
+            linearDoubleKeyFramesaveTest.Value = 0;
+            linearDoubleKeyFramesaveTest2.KeyTime = TimeSpan.FromSeconds(2);
+            linearDoubleKeyFramesaveTest2.Value = 1;
+            doubleAnimationUsingKeyFramessaveTest.KeyFrames.Add(linearDoubleKeyFramesaveTest);
+            doubleAnimationUsingKeyFramessaveTest.KeyFrames.Add(linearDoubleKeyFramesaveTest2);
+            saveTest.BeginAnimation(Button.OpacityProperty, doubleAnimationUsingKeyFramessaveTest);
+
+            toResultsYourTest.Visibility = Visibility.Hidden;
+        }
+
+        private void saveTest_Click(object sender, RoutedEventArgs e)
+        {
+            using (sixteenPersDB db = new sixteenPersDB())
+            {
+                my_test MyTest = new my_test { test_name = currentMyTestName, host_login = CurrentUser.login, description = currentMyTestDescription };
+                db.my_test.Add(MyTest);
+                for (int i = 0; i < 11;i++)
+                {
+                    question myQuestion = new question() { question_number = i, test_name = currentMyTestName, text = yourQuestionsText[i] };
+                    db.questions.Add(myQuestion);
+                }
+                my_test_decriptor MD1 = new my_test_decriptor() { name_descriptor= "ABC"+resultNameABC.Text, test_name=currentMyTestName,description=resultDescriptionABC.Text,pic=resultImageABC.Source.};
+            
+            }
+
+
+            }
     }
 
 

@@ -14,6 +14,7 @@
                 <ResourceDictionary Source="ButtonTemplates.xaml" />
                 <ResourceDictionary Source="beginNotification.xaml" />
                 <ResourceDictionary Source="resultDesign.xaml" />
+                <ResourceDictionary Source="yourTestConstructor.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
