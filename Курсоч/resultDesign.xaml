@@ -3,31 +3,31 @@
                     xmlns:local="clr-namespace:Курсоч">
     <Style x:Key="titlePers" TargetType="TextBlock">
         <Style.Setters>
-            <Setter Property="FontSize" Value="50"></Setter>
+            <Setter Property="FontSize" Value="60"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="FontWeight" Value="Black"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="Margin" Value="0,0,0,50 "/>
             <Setter Property="TextAlignment" Value="Center"/>
         </Style.Setters>
     </Style>
-    <Style x:Key="imageBasicPers" TargetType="Image">
+    <Style x:Key="imagePers" TargetType="Image">
         <Style.Setters>
             <Setter Property="Width" Value="500"></Setter>
             <Setter Property="Height" Value="200"></Setter>
         </Style.Setters>
     </Style>
-    <Style x:Key="textBasicPers" TargetType="TextBlock">
+    <Style x:Key="resultDescriptionPers" TargetType="TextBlock">
         <Style.Setters>
             <Setter Property="Margin" Value="0,30,0,0 "/>
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
             <Setter Property="TextAlignment" Value="Justify"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontWeight" Value="Bold"/>
         </Style.Setters>
     </Style>
     <Style x:Key="statBorderBase" TargetType="Border">
         <Style.Setters>
-            
             <Setter Property="Height" Value="40"/>
             <Setter Property="Width" Value="240"/>
             <Setter Property="Background" Value="White "/>

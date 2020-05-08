@@ -118,19 +118,52 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Adventurer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Adventurer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Advocate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Advocate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Architect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Architect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Campaigner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Campaigner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Commander" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Commander.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Consul" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Consul.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Debater" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Debater.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Defender" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Defender.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Enterteiner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Enterteiner.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Entrepreneur" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Entrepreneur.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Executive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Executive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logician" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logician.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Logistician" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logistician.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mediator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mediator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Protagonist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Protagonist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Virtuoso" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Virtuoso.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

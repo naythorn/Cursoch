@@ -68,6 +68,11 @@
     </ApplicationDefinition>
     <Compile Include="my_test.cs" />
     <Compile Include="my_test_decriptor.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="question.cs" />
     <Compile Include="result.cs" />
     <Compile Include="sixteenPersDB.cs" />
@@ -109,6 +114,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="persons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="resultDesign.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,11 +131,6 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -134,6 +138,7 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -146,22 +151,55 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Protagonist.png" />
+    <Resource Include="Resources\Debater.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Protagonist.png" />
+    <Folder Include="Pics\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Architect.png" />
+    <Resource Include="Resources\Architect.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Debater.png" />
+    <Resource Include="Resources\Commander.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Commander.png" />
+    <Resource Include="Resources\Logician.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Logician.png" />
+    <Resource Include="Resources\Advocate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Mediator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Protagonist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Campaigner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Logistician.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Defender.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Executive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Consul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Virtuoso.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Adventurer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Entrepreneur.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Enterteiner.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

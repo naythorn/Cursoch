@@ -88,7 +88,33 @@
             </StackPanel>
         </StackPanel>
         <!--Analytics-->
-      
+        <StackPanel x:Name="Analytics" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalAlignment="Center" Visibility="Hidden">
+            <Image x:Name="Architect" Source="Resources/Architect.png" Style="{DynamicResource persPic}" MouseDown="persType_MouseDown" ></Image>
+            <Image x:Name="Logician" Source="Resources/Logician.png"  Style="{DynamicResource persPic}"  MouseDown="persType_MouseDown"></Image>
+            <Image x:Name="Commander" Source="Resources/Commander.png" Style="{DynamicResource persPic}" MouseDown="persType_MouseDown"></Image>
+            <Image x:Name="Debater"  Source="Resources/Debater.png"  Style="{DynamicResource persPic}"  MouseDown="persType_MouseDown"></Image>
+        </StackPanel>
+        <!--Diplomats-->
+        <StackPanel x:Name="Diplomats" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalAlignment="Center" Visibility="Hidden">
+            <Image x:Name="Advocate" Source="Resources/Advocate.png" Style="{DynamicResource persPic}" MouseDown="persType_MouseDown" ></Image>
+            <Image x:Name="Mediator" Source="Resources/Mediator.png"  Style="{DynamicResource persPic}"  MouseDown="persType_MouseDown"></Image>
+            <Image x:Name="Protagonist" Source="Resources/Protagonist.png" Style="{DynamicResource persPic}" MouseDown="persType_MouseDown"></Image>
+            <Image x:Name="Campaigner"  Source="Resources/Campaigner.png"  Style="{DynamicResource persPic}"  MouseDown="persType_MouseDown"></Image>
+        </StackPanel>
+        <!--Guardians-->
+        <StackPanel x:Name="Guardians" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalAlignment="Center" Visibility="Hidden">
+            <Image x:Name="Logistician" Source="Resources/Logistician.png" Style="{DynamicResource persPic}" MouseDown="persType_MouseDown" ></Image>
+            <Image x:Name="Defender" Source="Resources/Defender.png"  Style="{DynamicResource persPic}"  MouseDown="persType_MouseDown"></Image>
+            <Image x:Name="Executive" Source="Resources/Executive.png" Style="{DynamicResource persPic}" MouseDown="persType_MouseDown"></Image>
+            <Image x:Name="Consul"  Source="Resources/Consul.png"  Style="{DynamicResource persPic}"  MouseDown="persType_MouseDown"></Image>
+        </StackPanel>
+        <!--Crawlers-->
+        <StackPanel x:Name="Crawlers" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="2" HorizontalAlignment="Center" Visibility="Hidden">
+            <Image x:Name="Virtuoso" Source="Resources/Virtuoso.png" Style="{DynamicResource persPic}" MouseDown="persType_MouseDown" ></Image>
+            <Image x:Name="Adventurer" Source="Resources/Adventurer.png"  Style="{DynamicResource persPic}"  MouseDown="persType_MouseDown"></Image>
+            <Image x:Name="Entrepreneur" Source="Resources/Entrepreneur.png" Style="{DynamicResource persPic}" MouseDown="persType_MouseDown"></Image>
+            <Image x:Name="Enterteiner"  Source="Resources/Enterteiner.png"  Style="{DynamicResource persPic}"  MouseDown="persType_MouseDown"></Image>
+        </StackPanel>
 
         <StackPanel x:Name="statusBar" Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Opacity="0" Visibility="Hidden">
             <Ellipse x:Name="el1"  Style="{DynamicResource statBar}"></Ellipse>
@@ -125,10 +151,13 @@
         <Button Panel.ZIndex="50" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="buttonNextQuestion" Template="{StaticResource NextQuestion}" Style="{DynamicResource RoundButton}" Click="buttonNextQuestion_Click" Margin="0,0,0,140" Visibility="Hidden" Opacity="0" />
         <Button Panel.ZIndex="50" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" x:Name="buttonLastQuestion" Template="{StaticResource LastQuestion}" Style="{DynamicResource RoundButton}" Click="buttonNextQuestion_Click" Margin="0,0,0,140" Visibility="Hidden" />
 
+        
+        
         <StackPanel Panel.ZIndex="0" Style="{StaticResource StandartStackPanel}" x:Name="beginTestPanel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Opacity="0" Visibility="Hidden" >
             <TextBlock x:Name="beginNotification" Style="{StaticResource beginNotificationText}" >Отвечайте честно, даже если вам не нравится ответ. Постарайтесь не давать нейтральных ответов.</TextBlock>
             <Image Source="D:\курсачек\Курсоч\nimb.png" Style="{StaticResource beginNotificationImage}"/>
         </StackPanel>
+        
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right">
             <TextBlock x:Name="textBlockSectionBasic" Style="{DynamicResource sectionText1}" Visibility="Hidden" Opacity="0">Кто я?</TextBlock>
             <TextBlock x:Name="textBlockSectionAdvantages" Style="{DynamicResource sectionText2}" Visibility="Hidden" >Достоинства</TextBlock>
@@ -141,11 +170,31 @@
             <Button x:Name="buttonSectionsDisAdvantages" Template="{StaticResource Disadvantages}" Style="{DynamicResource SmallCircleButton}" MouseEnter="buttonSectionsDisAdvantages_MouseEnter" MouseLeave="buttonSectionsDisAdvantages_MouseLeave" Visibility="Visible"/>
             <Button x:Name="buttonSectionAnother" Template="{StaticResource Another}" Style="{DynamicResource SmallCircleButton}" MouseEnter="buttonSectionAnother_MouseEnter" MouseLeave="buttonSectionAnother_MouseLeave"  Visibility="Visible"/>
         </StackPanel>
+        
+        
+        
         <StackPanel x:Name="infoPanel" Style="{DynamicResource StandartStackPanel}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4" Visibility="Hidden" Opacity="0">
-            <TextBlock Style="{DynamicResource titlePers}">ГАВНООО</TextBlock>
-            <Image x:Name="resultBasicImage" Style="{DynamicResource imageBasicPers}"  Source="Protagonist.png" Visibility="Visible"></Image>
-            <TextBlock Style="{DynamicResource textBasicPers}">Overly Idealistic – People with the Protagonist personality type can be caught off guard as they find that, through circumstance or nature, or simple misunderstanding, people fight against them and defy the principles they’ve adopted, however well-intentioned they may be. They are more likely to feel pity for this opposition than anger, and can earn a reputation of naïveté.</TextBlock>
-        </StackPanel >
+            <TextBlock x:Name="resultPers"  Style="{DynamicResource titlePers}">ГАВНООО</TextBlock>
+            <Image x:Name="ArchitectRes" Source="Resources/Architect.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="LogicianRes" Source="Resources/Logician.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="CommanderRes" Source="Resources/Commander.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="DebaterRes" Source="Resources/Debater.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="AdvocateRes" Source="Resources/Advocate.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="MediatorRes" Source="Resources/Mediator.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="ProtagonistRes" Source="Resources/Protagonist.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="CampaignerRes" Source="Resources/Campaigner.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="LogisticianRes" Source="Resources/Logistician.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="DefenderRes" Source="Resources/Defender.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="ExecutiveRes" Source="Resources/Executive.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="ConsulRes" Source="Resources/Consul.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="VirtuosoRes" Source="Resources/Virtuoso.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="AdventurerRes" Source="Resources/Adventurer.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="EntrepreneurRes" Source="Resources/Entrepreneur.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <Image x:Name="EnterteinerRes" Source="Resources/Enterteiner.png" Style="{DynamicResource imagePers}" Visibility="Collapsed"></Image>
+            <TextBlock x:Name="resultDescriptionPers" Style="{DynamicResource resultDescriptionPers}"></TextBlock>
+        </StackPanel>
+        
+        
         <StackPanel x:Name="statInfoPanel" Style="{DynamicResource StandartStackPanel}" Grid.Row="0" Grid.Column="3" Grid.RowSpan="4" Visibility="Hidden" Opacity="0" >
             <TextBlock Style="{DynamicResource statTextBase}">Интроверт/Экстраверт</TextBlock>
             <Border Style="{DynamicResource statBorderBase}">
@@ -172,6 +221,9 @@
                 </Border  >
             </Border>
         </StackPanel>
+        
+        
+        
         <StackPanel x:Name="beginCreatePanel" Visibility="Hidden" Opacity="0"  Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="1" Grid.Row="1" Style="{DynamicResource StandartStackPanel}">
             <TextBlock Style="{StaticResource beginNotificationText}" Margin="0,0,0,30">У вас нет сохраненных тестов. Вы можете придумать свой!</TextBlock>
         <Button Grid.ColumnSpan="4" Grid.RowSpan="4"  x:Name="buttonCreateTest" Template="{StaticResource Create}" Style="{DynamicResource RoundButton}" Visibility="Visible" Opacity="1"  Click="buttonCreateTest_Click"/>
