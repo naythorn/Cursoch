@@ -41,12 +41,222 @@
             <Setter Property="Background" Value="Red"/>
         </Style.Setters>
     </Style>
-    <Style x:Key="ClipImage" TargetType="Image" >
-        <Style.Setters>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Width" Value="40"/>
-            <Setter Property="Margin" Value="10,10,10,10"/>
 
+    <!--Options-->
+    <Style x:Key="BorderStartYourTest" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#51B787"></Setter>
         </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonStartYourTest, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#53C990"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderDeleteYourTest" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#86BE4E"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonDeleteYourTest, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#96CD5F"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderShareYourTest" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#BCBE4E"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonShareYourTest, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#CACC60"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderShareYourTestSend" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#4169E1"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonShareYourTestSend, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#6495ED"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <ControlTemplate TargetType="Button" x:Key="StartYourTest">
+        <Border Style="{DynamicResource BorderStartYourTest}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Пройти тест"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="DeleteYourTest">
+        <Border Style="{DynamicResource BorderDeleteYourTest}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Удалить"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="ShareYourTest">
+        <Border Style="{DynamicResource BorderShareYourTest}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Поделиться"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="ShareYourTestSend">
+        <Border Style="{DynamicResource BorderShareYourTestSend}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Поделиться"/>
+        </Border>
+    </ControlTemplate>
+    <Style x:Key="TextBoxShare" TargetType="TextBox">
+        <Style.Setters>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="Foreground" Value="#3A7071"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style.Setters>
+    </Style>
+    <ControlTemplate TargetType="Button" x:Key="Yes">
+        <Border Style="{DynamicResource BorderYes}" BorderBrush="Transparent">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Да!"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="No">
+            <Border Style="{DynamicResource BorderNo}" BorderBrush="Transparent">
+                <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Нет!"/>
+            </Border>
+        </ControlTemplate>
+    <Style x:Key="BorderYes" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#51B787"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonYes, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#53C990"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderNo" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#FF4500"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonNo, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FF7F50"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style  x:Key="areYouSureBox" TargetType="Border">
+        <Style.Setters>
+            <Setter Property="Background" Value="#3A7071"/>
+            <Setter Property="Height" Value="150"/>
+            <Setter Property="Width" Value="240"/>
+            <Setter Property="CornerRadius" Value="30"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="YesOrNoButton" TargetType="Button">
+        <Style.Setters>
+            <Setter Property="Button.Foreground" Value="White" />
+            <Setter Property="Button.FontFamily" Value="Myriad Pro" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="30"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="FontSize" Value="16" />
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+    <ControlTemplate TargetType="Button" x:Key="NextQuestionRunningCustomTest">
+        <Border Style="{DynamicResource BorderNextQuestionRunningCustomTest}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Следующий"/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="buttonLastQuestionRunningCustomTest">
+        <Border Style="{DynamicResource BorderLastQuestionRunningCustomTest}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Завершить"/>
+        </Border>
+    </ControlTemplate>
+    <Style x:Key="BorderNextQuestionRunningCustomTest" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#51B787"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonNextQuestionRunningCustomTest, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#53C990"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderLastQuestionRunningCustomTest" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#51B787"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonLastQuestionRunningCustomTest, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#53C990"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

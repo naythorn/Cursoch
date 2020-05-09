@@ -77,7 +77,7 @@
     <Style  x:Key="SignUpSuccessBox" TargetType="Border">
         <Style.Setters>
             <Setter Property="Background" Value="#3A7071"/>
-            <Setter Property="Height" Value="250"/>
+            <Setter Property="Height" Value="130"/>
             <Setter Property="Width" Value="270"/>
             <Setter Property="CornerRadius" Value="30"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>

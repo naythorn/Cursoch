@@ -61,7 +61,7 @@
     </ControlTemplate>
     <ControlTemplate TargetType="Button" x:Key="Guardians">
         <Border Style="{DynamicResource BorderGuardians}">
-            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Результаты"/>
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Защитники"/>
         </Border>
     </ControlTemplate>
     <ControlTemplate TargetType="Button" x:Key="Crawlers">

@@ -3,7 +3,8 @@
                     xmlns:local="clr-namespace:Курсоч">
     <Style x:Key="persPic" TargetType="Image">
         <Style.Setters>
-            <Setter Property="Margin" Value="10,0,10,0 "/>
+            <Setter Property="Margin" Value="30,0,30,0 "/>
+            <Setter Property="Height" Value="300"/>
         </Style.Setters>
     </Style>
 </ResourceDictionary>
