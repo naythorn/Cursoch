@@ -422,8 +422,8 @@ namespace Курсоч
 
                     opacityAnimateStackPanel(infoPanel);
                     infoPanel.Visibility = Visibility.Visible;
-                    opacityAnimateButton(buttonSectionBasic);
-                    buttonSectionBasic.Visibility = Visibility.Visible;
+                    opacityAnimateButton(buttonWhoElse);
+                    buttonWhoElse.Visibility = Visibility.Visible;
 
                     infoPanel.Visibility = Visibility.Visible;
                     DoubleAnimation infoPanelAnimation = new DoubleAnimation();
@@ -519,14 +519,14 @@ namespace Курсоч
             if (type == "ESFP") { resultPers.Text = "Увеселитель"; outputType = "Увеселитель"; EnterteinerRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[15]; }
             return outputType;
         }
-        private void buttonSectionBasic_MouseEnter(object sender, MouseEventArgs e)
+        private void buttonWhoElse_MouseEnter(object sender, MouseEventArgs e)
         {
-            textBlockSectionBasic.Visibility = Visibility.Visible;
-            DoubleAnimation textBlockSectionBasicAnimation = new DoubleAnimation();
-            textBlockSectionBasicAnimation.From = textBlockSectionBasic.Opacity;
-            textBlockSectionBasicAnimation.To = 1;
-            textBlockSectionBasicAnimation.Duration = TimeSpan.FromSeconds(0.3);
-            textBlockSectionBasic.BeginAnimation(TextBlock.OpacityProperty, textBlockSectionBasicAnimation);
+            textBlockWhoElse.Visibility = Visibility.Visible;
+            DoubleAnimation textBlockWhoElseAnimation = new DoubleAnimation();
+            textBlockWhoElseAnimation.From = textBlockWhoElse.Opacity;
+            textBlockWhoElseAnimation.To = 1;
+            textBlockWhoElseAnimation.Duration = TimeSpan.FromSeconds(0.3);
+            textBlockWhoElse.BeginAnimation(TextBlock.OpacityProperty, textBlockWhoElseAnimation);
 
             string listOfUsers = "";
             using (sixteenPersDB db = new sixteenPersDB())
@@ -541,16 +541,16 @@ namespace Курсоч
 
 
             }
-            textBlockSectionBasic.Text = listOfUsers;
+            textBlockWhoElse.Text = listOfUsers;
 
         }
-        private void buttonSectionBasic_MouseLeave(object sender, MouseEventArgs e)
+        private void buttonWhoElse_MouseLeave(object sender, MouseEventArgs e)
         {
-            DoubleAnimation textBlockSectionBasicAnimation = new DoubleAnimation();
-            textBlockSectionBasicAnimation.From = textBlockSectionBasic.Opacity;
-            textBlockSectionBasicAnimation.To = 0;
-            textBlockSectionBasicAnimation.Duration = TimeSpan.FromSeconds(0.3);
-            textBlockSectionBasic.BeginAnimation(TextBlock.OpacityProperty, textBlockSectionBasicAnimation);
+            DoubleAnimation textBlockWhoElseAnimation = new DoubleAnimation();
+            textBlockWhoElseAnimation.From = textBlockWhoElse.Opacity;
+            textBlockWhoElseAnimation.To = 0;
+            textBlockWhoElseAnimation.Duration = TimeSpan.FromSeconds(0.3);
+            textBlockWhoElse.BeginAnimation(TextBlock.OpacityProperty, textBlockWhoElseAnimation);
 
         }
 
@@ -891,8 +891,8 @@ namespace Курсоч
             infoPanel.Visibility = Visibility.Visible;
             opacityAnimateStackPanel(infoPanel);
             infoPanel.Visibility = Visibility.Visible;
-            opacityAnimateButton(buttonSectionBasic);
-            buttonSectionBasic.Visibility = Visibility.Visible;
+            opacityAnimateButton(buttonWhoElse);
+            buttonWhoElse.Visibility = Visibility.Visible;
             if (image.Name == "Architect")
             {
                 CurrentLocation = "Analytic";
@@ -1625,8 +1625,8 @@ namespace Курсоч
                         beginTestPanel.Visibility = Visibility.Hidden;
                         infoPanel.Visibility = Visibility.Hidden;
                         infoPanel.Opacity = 0;
-                        buttonSectionBasic.Visibility = Visibility.Hidden;
-                        buttonSectionBasic.Opacity = 0;
+                        buttonWhoElse.Visibility = Visibility.Hidden;
+                        buttonWhoElse.Opacity = 0;
                         question.Visibility = Visibility.Hidden;
                         question.Opacity = 0;
                         radioPanel.Visibility = Visibility.Hidden;
@@ -1748,8 +1748,8 @@ namespace Курсоч
                         statInfoPanel.Opacity = 0;
                         infoPanel.Visibility = Visibility.Hidden;
                         infoPanel.Opacity = 0;
-                        buttonSectionBasic.Visibility = Visibility.Hidden;
-                        buttonSectionBasic.Opacity = 0;
+                        buttonWhoElse.Visibility = Visibility.Hidden;
+                        buttonWhoElse.Opacity = 0;
                         MenuPanel.Visibility = Visibility.Visible;
                         opacityAnimateBorder(MenuPanel);
                         CurrentLocation = "";
@@ -1820,8 +1820,8 @@ namespace Курсоч
                         opacityAnimateStackPanel(Crawlers);
                         infoPanel.Visibility = Visibility.Hidden;
                         infoPanel.Opacity = 0;
-                        buttonSectionBasic.Visibility = Visibility.Hidden;
-                        buttonSectionBasic.Opacity = 0;
+                        buttonWhoElse.Visibility = Visibility.Hidden;
+                        buttonWhoElse.Opacity = 0;
                         CurrentLocation = "Crawlers";
                     }
                     break;
@@ -1839,8 +1839,8 @@ namespace Курсоч
                         opacityAnimateStackPanel(Crawlers);
                         infoPanel.Visibility = Visibility.Hidden;
                         infoPanel.Opacity = 0;
-                        buttonSectionBasic.Visibility = Visibility.Hidden;
-                        buttonSectionBasic.Opacity = 0;
+                        buttonWhoElse.Visibility = Visibility.Hidden;
+                        buttonWhoElse.Opacity = 0;
                         CurrentLocation = "Guardians";
                     }
                     break;
@@ -1859,8 +1859,8 @@ namespace Курсоч
                         opacityAnimateStackPanel(Crawlers);
                         infoPanel.Visibility = Visibility.Hidden;
                         infoPanel.Opacity = 0;
-                        buttonSectionBasic.Visibility = Visibility.Hidden;
-                        buttonSectionBasic.Opacity = 0;
+                        buttonWhoElse.Visibility = Visibility.Hidden;
+                        buttonWhoElse.Opacity = 0;
                         CurrentLocation = "Diplomats";
                     }
                     break;
@@ -1878,8 +1878,8 @@ namespace Курсоч
                         opacityAnimateStackPanel(Crawlers);
                         infoPanel.Visibility = Visibility.Hidden;
                         infoPanel.Opacity = 0;
-                        buttonSectionBasic.Visibility = Visibility.Hidden;
-                        buttonSectionBasic.Opacity = 0;
+                        buttonWhoElse.Visibility = Visibility.Hidden;
+                        buttonWhoElse.Opacity = 0;
                         CurrentLocation = "Analytics";
                     }
                     break;
@@ -1913,8 +1913,8 @@ namespace Курсоч
             CurrentLocation = "";
             infoPanel.Visibility = Visibility.Hidden;
             infoPanel.Opacity = 0;
-            buttonSectionBasic.Visibility = Visibility.Hidden;
-            buttonSectionBasic.Opacity = 0;
+            buttonWhoElse.Visibility = Visibility.Hidden;
+            buttonWhoElse.Opacity = 0;
             Crawlers.Visibility = Visibility.Hidden;
             Crawlers.Opacity = 0;
             Guardians.Visibility = Visibility.Hidden;

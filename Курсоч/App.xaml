@@ -6,19 +6,15 @@
     <Application.Resources>
     
             <ResourceDictionary>
-                <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Button.xaml" />
-                <ResourceDictionary Source="Colors.xaml" />
-                <ResourceDictionary Source="ButtonAnimations.xaml" />
-                <ResourceDictionary Source="ButtonBorders.xaml" />
-                <ResourceDictionary Source="ButtonTemplates.xaml" />
-                <ResourceDictionary Source="beginNotification.xaml" />
-                <ResourceDictionary Source="resultDesign.xaml" />
-                <ResourceDictionary Source="yourTestConstructor.xaml" />
-                <ResourceDictionary Source="persons.xaml" />
-                <ResourceDictionary Source="MenuPanelStyle.xaml" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Buttons.xaml" />
+                <ResourceDictionary Source="HomeReturnExit.xaml" />
+                <ResourceDictionary Source="MainTestResultStyle.xaml" />
                 <ResourceDictionary Source="BeginSignInSignUpStyle.xaml" />
+                <ResourceDictionary Source="MenuPanelStyle.xaml" />
                 <ResourceDictionary Source="MainTestStyle.xaml" />
+                <ResourceDictionary Source="CustomTestCreator.xaml" />
+                <ResourceDictionary Source="16personalities.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

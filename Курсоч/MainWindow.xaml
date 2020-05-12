@@ -160,8 +160,8 @@
         </StackPanel>
         <!--Extra(delete?)-->
 
-        <TextBlock x:Name="textBlockSectionBasic" Style="{DynamicResource sectionText1}" Visibility="Hidden" Opacity="0" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Top">Кто я? nfsuifh dhbvsduyzgfves eavysfuyeaf eabfyieagif eabgfiesygfiysea fbiayfvbisyfev ebgsieybguiergfb rgneuibgeuigie</TextBlock>
-        <Button Grid.Row="0"  VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="buttonSectionBasic" Template="{StaticResource Basic}" Style="{DynamicResource SmallCircleButton}"  Visibility="Hidden" Opacity="0" MouseEnter="buttonSectionBasic_MouseEnter" MouseLeave="buttonSectionBasic_MouseLeave"/>
+        <TextBlock x:Name="textBlockWhoElse" Style="{DynamicResource whoElseText}" Visibility="Hidden" Opacity="0" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Top"></TextBlock>
+        <Button Grid.Row="0"  VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="buttonWhoElse" Template="{StaticResource WhoElse}" Style="{DynamicResource SmallCircleButton}"  Visibility="Hidden" Opacity="0" MouseEnter="buttonWhoElse_MouseEnter" MouseLeave="buttonWhoElse_MouseLeave"/>
         <StackPanel x:Name="Buttons" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" Visibility="Hidden" Opacity="0" >
         <Button Grid.Row="1"   x:Name="buttonReturn" Template="{StaticResource Return}" Style="{DynamicResource SmallCircleButton}"  Visibility="Visible" Opacity="1" Click="buttonReturn_Click" />
             <Button Grid.Row="1"   x:Name="buttonHome" Template="{StaticResource Home}" Style="{DynamicResource SmallCircleButton}"  Visibility="Visible" Opacity="1" Click="buttonHome_Click" />
@@ -346,7 +346,6 @@
         <StackPanel x:Name="noResults" Visibility="Hidden" Opacity="0"  Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="1" Grid.Row="1" Style="{DynamicResource StandartStackPanel}">
             <TextBlock Style="{StaticResource beginNotificationText}" Margin="0,0,0,30">У вас нет результатов, они появятся здесь после прохождения остовного теста.</TextBlock>
             <Button x:Name="buttonToMainTest" Template="{StaticResource ToMainTest}" Style="{DynamicResource RoundButton}" Margin="0,10,0,10" Visibility="Hidden" Click="buttonStart_Click" />
-
         </StackPanel>
     </Grid>
   

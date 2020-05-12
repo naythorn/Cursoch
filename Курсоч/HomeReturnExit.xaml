@@ -1,0 +1,85 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Курсоч">
+    <ControlTemplate TargetType="Button" x:Key="Return">
+        <Border Style="{DynamicResource BorderReturn}" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="Resources/Return.png" Width="20"></Image>
+            </ContentControl>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="Home">
+        <Border Style="{DynamicResource BorderHome}" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Image Source="Resources/Home.png" Width="20"></Image>
+            </ContentControl>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="Button" x:Key="Exit">
+        <Border Style="{DynamicResource BorderExit}" >
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="Resources/Exit.png" Width="20"></Image>
+            </ContentControl>
+        </Border>
+    </ControlTemplate>
+     <Style x:Key="BorderReturn" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="#CC9900"/>
+            <Setter Property="Border.CornerRadius" Value="25"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="Background" Value="#FFCC33"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonReturn, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FFD659"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderHome" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="#5A753D"/>
+            <Setter Property="Border.CornerRadius" Value="25"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="Background" Value="#99C26D"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonHome, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#92bf62"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderExit" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="#990033"/>
+            <Setter Property="Border.CornerRadius" Value="25"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="Background" Value="#CC3333"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonExit, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#E85858"/>  
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>

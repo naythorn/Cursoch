@@ -28,7 +28,6 @@
             <Setter Property="Width" Value="150"/>
             <Setter Property="Height" Value="150"/>
             <Setter Property="FontWeight" Value="Bold"/>
-
         </Style.Setters>
         <Style.Triggers>
             <MultiTrigger>

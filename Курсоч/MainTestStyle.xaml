@@ -1,5 +1,325 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Курсоч">
-    
+    <!--Radio buttons-->
+    <ControlTemplate TargetType="RadioButton" x:Key="largeRadioYes">
+        <Border Style="{DynamicResource BorderLargeRadioYes}">
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="RadioButton" x:Key="bigRadioYes">
+        <Border Style="{DynamicResource BorderBigRadioYes}">
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="RadioButton" x:Key="mediumRadioYes">
+        <Border Style="{DynamicResource BorderMediumRadioYes}">
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="RadioButton" x:Key="smallRadio">
+        <Border Style="{DynamicResource BorderSmallRadio}">
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="RadioButton" x:Key="mediumRadioNo">
+        <Border Style="{DynamicResource BorderMediumRadioNo}">
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="RadioButton" x:Key="bigRadioNo">
+        <Border Style="{DynamicResource BorderBigRadioNo}">
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+    <ControlTemplate TargetType="RadioButton" x:Key="largeRadioNo">
+        <Border Style="{DynamicResource BorderLargeRadioNo}">
+            <ContentControl/>
+        </Border>
+    </ControlTemplate>
+
+    <!--Radio Panel-->
+    <Style x:Key="BorderLargeRadioYes" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="#446125"/>
+            <Setter Property="Border.CornerRadius" Value="35"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="Margin" Value="0,0,30,0"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=radio0, Path=IsChecked}"
+                        Value="True">
+                <Setter Property="Background" Value="#446125"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=radio0, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="#3C5522"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#587B32"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderBigRadioYes" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="#446125"/>
+            <Setter Property="Border.CornerRadius" Value="30"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="Margin" Value="0,0,30,0"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=radio1, Path=IsChecked}"
+                        Value="True">
+                <Setter Property="Background" Value="#446125"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=radio1, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="#3C5522"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#587B32"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderMediumRadioYes" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="#446125"/>
+            <Setter Property="Border.CornerRadius" Value="25"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Background" Value="White"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=radio2, Path=IsChecked}"
+                        Value="True">
+                <Setter Property="Background" Value="#446125"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=radio2, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="#3C5522"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#587B32"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderSmallRadio" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="#484848"/>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="Margin" Value="30,0,30,0"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=radio3, Path=IsChecked}"
+                        Value="True">
+                <Setter Property="Background" Value="#484848"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=radio3, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="#393939"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#6C6B6B"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderMediumRadioNo" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="#553043"/>
+            <Setter Property="Border.CornerRadius" Value="25"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Background" Value="White"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=radio4, Path=IsChecked}"
+                        Value="True">
+                <Setter Property="Background" Value="#553043"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=radio4, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="#4B293B"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#6B3E55"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderBigRadioNo" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="#553043"/>
+            <Setter Property="Border.CornerRadius" Value="30"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="Margin" Value="30,0,0,0"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=radio5, Path=IsChecked}"
+                        Value="True">
+                <Setter Property="Background" Value="#553043"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=radio5, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="#4B293B"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#6B3E55"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderLargeRadioNo" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="#553043"/>
+            <Setter Property="Border.CornerRadius" Value="35"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="Margin" Value="30,0,0,0"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=radio6, Path=IsChecked}"
+                        Value="True">
+                <Setter Property="Background" Value="#553043"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=radio6, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="#4B293B"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#6B3E55"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style  x:Key="radioPanel" TargetType="StackPanel">
+        <Style.Setters>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Margin" Value="0,40,0,40"/>
+        </Style.Setters>
+    </Style>
+    <!--Next Question-->
+    <ControlTemplate TargetType="Button" x:Key="NextQuestion">
+        <Border Style="{DynamicResource BorderNextQuestion}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Следующий"/>
+        </Border>
+    </ControlTemplate>
+    <Style x:Key="BorderNextQuestion" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#51B787"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonNextQuestion, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#53C990"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--Last Question-->
+    <ControlTemplate TargetType="Button" x:Key="LastQuestion">
+        <Border Style="{DynamicResource BorderLastQuestion}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Завершить"/>
+        </Border>
+    </ControlTemplate>
+    <Style x:Key="BorderLastQuestion" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#51B787"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonLastQuestion, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#53C990"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="borderCreate" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#5DB5B6"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonCreateTest, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#6DD3D4"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--Status Bar-->
+    <Style x:Key="statBar" TargetType="Ellipse">
+        <Style.Setters>
+            <Setter Property="Width" Value="10"/>
+            <Setter Property="Height" Value="10"/>
+            <Setter Property="Fill" Value="Red"/>
+            <Setter Property="Margin" Value="0,0,10,0"/>
+        </Style.Setters>
+    </Style>
+    <!--question -->
+    <Style  x:Key="question" TargetType="TextBlock">
+        <Style.Setters>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        </Style.Setters>
+    </Style>
+    <!--Notification -->
+    <Style x:Key="beginNotificationText" TargetType="TextBlock">
+        <Style.Setters>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="beginNotificationImage" TargetType="Image">
+        <Style.Setters>
+            <Setter Property="Width" Value="160"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Margin" Value="0,30,0,0"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="LabelSuccess" TargetType="Label">
+        <Style.Setters>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style.Setters>
+    </Style>
 </ResourceDictionary>
