@@ -16,6 +16,9 @@
                 <ResourceDictionary Source="resultDesign.xaml" />
                 <ResourceDictionary Source="yourTestConstructor.xaml" />
                 <ResourceDictionary Source="persons.xaml" />
+                <ResourceDictionary Source="MenuPanelStyle.xaml" />
+                <ResourceDictionary Source="BeginSignInSignUpStyle.xaml" />
+                <ResourceDictionary Source="MainTestStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 

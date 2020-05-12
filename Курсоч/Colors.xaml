@@ -18,72 +18,11 @@
             <Setter Property="Foreground" Value="White" />
         </Style.Setters>
     </Style>
-    <Style x:Key="TextBoxSignIn" TargetType="TextBox">
-        <Style.Setters>
-            <Setter Property="Height" Value="28"/>
-            <Setter Property="Width" Value="250"/>
-            <Setter Property="Foreground" Value="#3A7071"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="16"/>
-        </Style.Setters>
-    </Style>
-    <Style  x:Key="SignInBorderBox" TargetType="Border">
-        <Style.Setters>
-            <Setter Property="Background" Value="#3A7071"/>
-            <Setter Property="Height" Value="220"/>
-            <Setter Property="Width" Value="300"/>
-            <Setter Property="CornerRadius" Value="30"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style.Setters>
-    </Style>
-    <Style  x:Key="SignInBorderBox3" TargetType="Border">
-        <Style.Setters>
-            <Setter Property="Background" Value="#3A7071"/>
-            <Setter Property="Height" Value="160"/>
-            <Setter Property="Width" Value="270"/>
-            <Setter Property="CornerRadius" Value="30"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style.Setters>
-    </Style>
-    <Style  x:Key="SignUpBorderBox" TargetType="Border">
-        <Style.Setters>
-            <Setter Property="Background" Value="#3A7071"/>
-            <Setter Property="Height" Value="300"/>
-            <Setter Property="Width" Value="300"/>
-            <Setter Property="CornerRadius" Value="30"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style.Setters>
-    </Style>
-    <Style  x:Key="MenuBorderBox" TargetType="Border">
-        <Style.Setters>
-            <Setter Property="Background" Value="#3A7071"/>
-            <Setter Property="Height" Value="260"/>
-            <Setter Property="Width" Value="270"/>
-            <Setter Property="CornerRadius" Value="30"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style.Setters>
-    </Style>
-    <Style  x:Key="StandartStackPanel" TargetType="StackPanel">
-        <Style.Setters>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style.Setters>
-    </Style>
-    <Style  x:Key="SignUpSuccessBox" TargetType="Border">
-        <Style.Setters>
-            <Setter Property="Background" Value="#3A7071"/>
-            <Setter Property="Height" Value="130"/>
-            <Setter Property="Width" Value="270"/>
-            <Setter Property="CornerRadius" Value="30"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-        </Style.Setters>
-    </Style>
+   
+    
+
+   
+    
     <Style  x:Key="question" TargetType="TextBlock">
         <Style.Setters>
             <Setter Property="Foreground" Value="White"/>
@@ -108,9 +47,10 @@
         <Style  x:Key="sectionText1" TargetType="TextBlock">
         <Style.Setters>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontSize" Value="26"/>
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Margin" Value="0,25,50,25"/>
+            <Setter Property="Margin" Value="120,25,20,25"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
         </Style.Setters>
         <Style.Triggers>
             <DataTrigger Binding="{Binding ElementName=buttonSectionBasic, Path=IsMouseOver}"

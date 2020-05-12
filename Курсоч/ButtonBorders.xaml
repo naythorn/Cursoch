@@ -2,180 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Курсоч">
 
-    <Style x:Key="borderBegin" TargetType="Border" >
-        <Style.Setters>
-            <Setter Property="Border.CornerRadius" Value="20"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Background" Value="#5DB5B6"></Setter>
-        </Style.Setters>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding ElementName=buttonBegin, Path=IsPressed}"
-                        Value="True">
-                <Setter Property="Background" Value="Red"/>
-            </DataTrigger>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#6DD3D4"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
+    
 
-    <Style x:Key="borderSignIn" TargetType="Border" >
-        <Style.Setters>
-            <Setter Property="Border.CornerRadius" Value="20"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Background" Value="#5DB5B6"></Setter>
-        </Style.Setters>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding ElementName=buttonSignIn, Path=IsPressed}"
-                        Value="True">
-                <Setter Property="Background" Value="Red"/>
-            </DataTrigger>
-            <Trigger Property="IsMouseOver" Value="True">
-
-                <Setter Property="Background" Value="#6DD3D4"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-    <Style x:Key="borderSignIn2" TargetType="Border" >
-        <Style.Setters>
-            <Setter Property="Border.CornerRadius" Value="20"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Background" Value="#5DB5B6"></Setter>
-        </Style.Setters>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding ElementName=buttonSignIn2, Path=IsPressed}"
-                        Value="True">
-                <Setter Property="Background" Value="Red"/>
-            </DataTrigger>
-            <Trigger Property="IsMouseOver" Value="True">
-
-                <Setter Property="Background" Value="#6DD3D4"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-    <Style x:Key="borderSignUp" TargetType="Border" >
-        <Style.Setters>
-            <Setter Property="Border.CornerRadius" Value="20"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Background" Value="#51B787"></Setter>
-        </Style.Setters>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding ElementName=buttonSignUp, Path=IsPressed}"
-                        Value="True">
-                <Setter Property="Background" Value="Red"/>
-            </DataTrigger>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#53C990"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-    <Style x:Key="borderSignUp2" TargetType="Border" >
-        <Style.Setters>
-            <Setter Property="Border.CornerRadius" Value="20"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Background" Value="#51B787"></Setter>
-        </Style.Setters>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding ElementName=buttonSignUp2, Path=IsPressed}"
-                        Value="True">
-                <Setter Property="Background" Value="Red"/>
-            </DataTrigger>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#53C990"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-    <Style x:Key="BorderNext" TargetType="Border" >
-        <Style.Setters>
-            <Setter Property="Border.CornerRadius" Value="20"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Background" Value="#51B787"></Setter>
-        </Style.Setters>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding ElementName=buttonNext, Path=IsPressed}"
-                        Value="True">
-                <Setter Property="Background" Value="Red"/>
-            </DataTrigger>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#53C990"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
+   
+  
+    
     <!--Menu Panel-->
-    <Style x:Key="BorderStart" TargetType="Border" >
-        <Style.Setters>
-            <Setter Property="Border.CornerRadius" Value="20"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Background" Value="#51B787"></Setter>
-        </Style.Setters>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding ElementName=buttonStart, Path=IsPressed}"
-                        Value="True">
-                <Setter Property="Background" Value="Red"/>
-            </DataTrigger>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#53C990"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-    <Style x:Key="BorderResults" TargetType="Border" >
-        <Style.Setters>
-            <Setter Property="Border.CornerRadius" Value="20"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Background" Value="#86BE4E"></Setter>
-        </Style.Setters>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding ElementName=buttonResults, Path=IsPressed}"
-                        Value="True">
-                <Setter Property="Background" Value="Red"/>
-            </DataTrigger>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#96CD5F"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-    <Style x:Key="BorderMyTests" TargetType="Border" >
-        <Style.Setters>
-            <Setter Property="Border.CornerRadius" Value="20"/>
-                <Setter Property="Width" Value="180"/>
-                <Setter Property="Height" Value="30"/>
-            <Setter Property="Background" Value="#BCBE4E"></Setter>
-        </Style.Setters>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding ElementName=buttonMyTests, Path=IsPressed}"
-                        Value="True">
-                <Setter Property="Background" Value="Red"/>
-            </DataTrigger>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#CACC60"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-    <Style x:Key="BorderPersonalities" TargetType="Border" >
-        <Style.Setters>
-            <Setter Property="Border.CornerRadius" Value="20"/>
-            <Setter Property="Width" Value="180"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Background" Value="#BEA64E"></Setter>
-        </Style.Setters>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding ElementName=buttonPersonalities, Path=IsPressed}"
-                        Value="True">
-                <Setter Property="Background" Value="Red"/>
-            </DataTrigger>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#CFB762"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
+   
     <!--Personalities Panel-->
     <Style x:Key="BorderAnalytics" TargetType="Border" >
         <Style.Setters>
@@ -557,6 +390,66 @@
             </DataTrigger>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#6DD3D4"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderReturn" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="#CC9900"/>
+            <Setter Property="Border.CornerRadius" Value="25"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="Background" Value="#FFCC33"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonReturn, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FFD659"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderHome" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="#5A753D"/>
+            <Setter Property="Border.CornerRadius" Value="25"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="Background" Value="#99C26D"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonHome, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#92bf62"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="BorderExit" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="#990033"/>
+            <Setter Property="Border.CornerRadius" Value="25"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="0,0,0,0"/>
+            <Setter Property="Background" Value="#CC3333"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonExit, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#E85858"/>  
             </Trigger>
         </Style.Triggers>
     </Style>

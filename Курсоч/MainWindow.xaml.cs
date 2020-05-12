@@ -11,11 +11,18 @@ using System.Windows.Shapes;
 
 namespace Курсоч
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        
+
+
+
+
+
+
+
+
+        string CurrentLocation = "";
         string currentMyTestName;
         string currentMyTestDescription;
         user CurrentUser = new user();
@@ -23,8 +30,12 @@ namespace Курсоч
         double descriptorEI = 0;
         double descriptorJP = 0;
         double descriptorTF = 0;
-        string type = "";
 
+        double descriptorAD = 0;
+        double descriptorBE = 0;
+        double descriptorCF = 0;
+        string type = "";
+        List<result> currentResults = new List<result>();
         List<double> testAnswers = new List<double>();
         List<string> questionsText = new List<string>()
         {
@@ -116,18 +127,19 @@ namespace Курсоч
             ellipsesY.Add(el10Y);
             ellipsesY.Add(el11Y);
             ellipsesY.Add(el12Y);
+
+
+
+
+          
+
+
+
         }
-
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void ButtonBegin_Click(object sender, RoutedEventArgs e)
         {
             SignInSignUpPanel.Visibility = Visibility.Visible;
-            buttonBegin.Visibility= Visibility.Hidden;
+            buttonBegin.Visibility = Visibility.Hidden;
             DoubleAnimation SignInSignUpPanelAnimation = new DoubleAnimation();
             SignInSignUpPanelAnimation.From = SignInSignUpPanel.Opacity;
             SignInSignUpPanelAnimation.To = 1;
@@ -196,24 +208,22 @@ namespace Курсоч
                     ErrorSignUp.Text = "Имя пользователя должно содержать 2-20 символов: буквы и цифры, первый символ обязательно букв";
                 }
             }
-            }
+        }
 
         private void buttonNext_Click(object sender, RoutedEventArgs e)
         {
             MenuPanel.Visibility = Visibility.Visible;
             SuccessfulRegistrationPanel.Visibility = Visibility.Hidden;
             opacityAnimateBorder(MenuPanel);
-
+            Buttons.Visibility = Visibility.Visible;
+            opacityAnimateStackPanel(Buttons);
         }
 
         private void buttonPersonalities_Click(object sender, RoutedEventArgs e)
         {
+            CurrentLocation = "FourGroups";
             MenuPanel.Visibility = Visibility.Hidden;
-            DoubleAnimation fourPersGroupsAnimation = new DoubleAnimation();
-            fourPersGroupsAnimation.From = 0;
-            fourPersGroupsAnimation.To = 1;
-            fourPersGroupsAnimation.Duration = TimeSpan.FromSeconds(0.3);
-            fourPersGroups.BeginAnimation(StackPanel.OpacityProperty, fourPersGroupsAnimation);
+            opacityAnimateStackPanel(fourPersGroups);
             fourPersGroups.Visibility = Visibility.Visible;
         }
         private void buttonSignIn2_Click(object sender, RoutedEventArgs e)
@@ -223,7 +233,7 @@ namespace Курсоч
                 string login = TextBoxSignInLogin.Text;
                 string password = TextBoxSignInPassword.Text;
                 user User = new user { login = login, password = password };////ask
-                bool flagLogin=false;
+                bool flagLogin = false;
                 bool flagPassword = false;
                 foreach (user u in db.users)
                 {
@@ -236,11 +246,9 @@ namespace Курсоч
                             CurrentUser = User;
                             SignInPanel.Visibility = Visibility.Hidden;
                             MenuPanel.Visibility = Visibility.Visible;
-                            DoubleAnimation MenuPanelAnimation = new DoubleAnimation();
-                            MenuPanelAnimation.From = MenuPanel.Opacity;
-                            MenuPanelAnimation.To = 1;
-                            MenuPanelAnimation.Duration = TimeSpan.FromSeconds(0.3);
-                            MenuPanel.BeginAnimation(Border.OpacityProperty, MenuPanelAnimation);
+                            opacityAnimateBorder(MenuPanel);
+                            Buttons.Visibility = Visibility.Visible;
+                            opacityAnimateStackPanel(Buttons);
 
                         }
                     }
@@ -249,17 +257,17 @@ namespace Курсоч
                 {
                     ErrorSignIn.Text = "Нет такого пользователя";
                 }
-                if (!flagPassword&& flagLogin)
+                if (!flagPassword && flagLogin)
                 {
                     ErrorSignIn.Text = "Неверный пароль";
                 }
 
             }
-            }
+        }
 
         private void buttonStart_Click(object sender, RoutedEventArgs e)
         {
-            
+            CurrentLocation = "MainTest";
             MenuPanel.Visibility = Visibility.Hidden;
             question.Visibility = Visibility.Visible;
             radioPanel.Visibility = Visibility.Visible;
@@ -289,23 +297,29 @@ namespace Курсоч
             DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesQuestionRadioPanel = new DoubleAnimationUsingKeyFrames();
             LinearDoubleKeyFrame linearDoubleKeyFrameQuestion = new LinearDoubleKeyFrame();
             LinearDoubleKeyFrame linearDoubleKeyFrameQuestion2 = new LinearDoubleKeyFrame();
+            LinearDoubleKeyFrame linearDoubleKeyFrameQuestion11 = new LinearDoubleKeyFrame();
+            linearDoubleKeyFrameQuestion11.KeyTime = TimeSpan.FromSeconds(0);
+            linearDoubleKeyFrameQuestion11.Value = 0;
             linearDoubleKeyFrameQuestion.KeyTime = TimeSpan.FromSeconds(3.8);
             linearDoubleKeyFrameQuestion.Value = 0;
             linearDoubleKeyFrameQuestion2.KeyTime = TimeSpan.FromSeconds(4.3);
             linearDoubleKeyFrameQuestion2.Value = 1;
             doubleAnimationUsingKeyFramesQuestionRadioPanel.KeyFrames.Add(linearDoubleKeyFrameQuestion);
             doubleAnimationUsingKeyFramesQuestionRadioPanel.KeyFrames.Add(linearDoubleKeyFrameQuestion2);
+            doubleAnimationUsingKeyFramesQuestionRadioPanel.KeyFrames.Add(linearDoubleKeyFrameQuestion11);
             radioPanel.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesQuestionRadioPanel);
 
             DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesQuestion = new DoubleAnimationUsingKeyFrames();
             LinearDoubleKeyFrame linearDoubleKeyFrameQuestion3 = new LinearDoubleKeyFrame();
             LinearDoubleKeyFrame linearDoubleKeyFrameQuestion4 = new LinearDoubleKeyFrame();
+
             linearDoubleKeyFrameQuestion3.KeyTime = TimeSpan.FromSeconds(3.8);
             linearDoubleKeyFrameQuestion3.Value = 0;
             linearDoubleKeyFrameQuestion4.KeyTime = TimeSpan.FromSeconds(4.3);
             linearDoubleKeyFrameQuestion4.Value = 1;
             doubleAnimationUsingKeyFramesQuestion.KeyFrames.Add(linearDoubleKeyFrameQuestion3);
             doubleAnimationUsingKeyFramesQuestion.KeyFrames.Add(linearDoubleKeyFrameQuestion4);
+            doubleAnimationUsingKeyFramesQuestion.KeyFrames.Add(linearDoubleKeyFrameQuestion11);
             question.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesQuestion);
 
 
@@ -318,6 +332,7 @@ namespace Курсоч
             linearDoubleKeyFrameQuestion6.Value = 1;
             doubleAnimationUsingKeyFramesNextQuestion.KeyFrames.Add(linearDoubleKeyFrameQuestion5);
             doubleAnimationUsingKeyFramesNextQuestion.KeyFrames.Add(linearDoubleKeyFrameQuestion6);
+            doubleAnimationUsingKeyFramesNextQuestion.KeyFrames.Add(linearDoubleKeyFrameQuestion11);
             buttonNextQuestion.BeginAnimation(Button.OpacityProperty, doubleAnimationUsingKeyFramesNextQuestion);
 
             DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesStatusBar = new DoubleAnimationUsingKeyFrames();
@@ -329,15 +344,17 @@ namespace Курсоч
             linearDoubleKeyFrameQuestion8.Value = 1;
             doubleAnimationUsingKeyFramesStatusBar.KeyFrames.Add(linearDoubleKeyFrameQuestion7);
             doubleAnimationUsingKeyFramesStatusBar.KeyFrames.Add(linearDoubleKeyFrameQuestion8);
+            doubleAnimationUsingKeyFramesStatusBar.KeyFrames.Add(linearDoubleKeyFrameQuestion11);
             statusBar.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesStatusBar);
         }
 
         private void buttonNextQuestion_Click(object sender, RoutedEventArgs e)
         {
-            bool flag=false;
-            if(questionCounter<=questionsText.Count)
+            beginTestPanel.Visibility = Visibility.Hidden;
+            bool flag = false;
+            if (questionCounter <= questionsText.Count)
             {
-                if (radio0.IsChecked == true) { testAnswers.Add(1);flag = true; }
+                if (radio0.IsChecked == true) { testAnswers.Add(1); flag = true; }
                 if (radio1.IsChecked == true) { testAnswers.Add(0.6); flag = true; }
                 if (radio2.IsChecked == true) { testAnswers.Add(0.3); flag = true; }
                 if (radio3.IsChecked == true) { testAnswers.Add(0); flag = true; }
@@ -355,8 +372,8 @@ namespace Курсоч
                 radio4.IsChecked = false;
                 radio5.IsChecked = false;
                 radio6.IsChecked = false;
-                if(questionCounter!= questionsText.Count) { question.Text = questionsText[questionCounter]; }
-                if (questionCounter== questionsText.Count-1)
+                if (questionCounter != questionsText.Count) { question.Text = questionsText[questionCounter]; }
+                if (questionCounter == questionsText.Count - 1)
                 {
                     buttonNextQuestion.Visibility = Visibility.Hidden;
                     buttonLastQuestion.Visibility = Visibility.Visible;
@@ -370,30 +387,43 @@ namespace Курсоч
                     Logo.Visibility = Visibility.Hidden;
                     statusBar.Visibility = Visibility.Hidden;
                     ////////
-                    for (int i=0; i < 5; i++){descriptorSN += testAnswers[i];}
-                    for (int i  = 5; i < 10; i++){descriptorEI += testAnswers[i];}
-                    for (int i = 10; i < 15; i++){descriptorJP += testAnswers[i];}
-                    for (int i = 15; i < 20; i++){descriptorTF += testAnswers[i];}
+                    for (int i = 0; i < 5; i++) { descriptorSN += testAnswers[i]; }
+                    for (int i = 5; i < 10; i++) { descriptorEI += testAnswers[i]; }
+                    for (int i = 10; i < 15; i++) { descriptorJP += testAnswers[i]; }
+                    for (int i = 15; i < 20; i++) { descriptorTF += testAnswers[i]; }
                     if (descriptorEI < 0) { type += "E"; } else { type += "I"; }
-                    if (descriptorSN < 0){type += "S";}else { type += "N"; }
+                    if (descriptorSN < 0) { type += "S"; } else { type += "N"; }
                     if (descriptorTF < 0) { type += "T"; } else { type += "F"; }
                     if (descriptorJP < 0) { type += "P"; } else { type += "J"; }
                     using (sixteenPersDB db = new sixteenPersDB())
                     {
-                        result currentResult = new result() { user_login = CurrentUser.login, descriptor_SN=(float?)descriptorSN,
-                            descriptor_EI = (float?)descriptorEI, descriptor_JP = (float?)descriptorJP, descriptor_TF = (float?)descriptorTF, result_type=type };
+                        foreach (result res in db.results)
+                        {
+                            if (res.user_login == CurrentUser.login)
+                            {
+                                db.results.Remove(res);
+
+                            }
+                        }
+                        result currentResult = new result()
+                        {
+                            user_login = CurrentUser.login,
+                            descriptor_SN = (float?)descriptorSN,
+                            descriptor_EI = (float?)descriptorEI,
+                            descriptor_JP = (float?)descriptorJP,
+                            descriptor_TF = (float?)descriptorTF,
+                            result_type = type
+                        };
                         db.results.Add(currentResult);
                         db.SaveChanges();
 
                     }
                     defineYourPersonality(type);
-                    
-                    resultPanel.Visibility = Visibility.Visible;
-                    DoubleAnimation resultPanelAnimation = new DoubleAnimation();
-                    resultPanelAnimation.From = resultPanel.Opacity;
-                    resultPanelAnimation.To = 1;
-                    resultPanelAnimation.Duration = TimeSpan.FromSeconds(0.3);
-                    resultPanel.BeginAnimation(StackPanel.OpacityProperty, resultPanelAnimation);
+
+                    opacityAnimateStackPanel(infoPanel);
+                    infoPanel.Visibility = Visibility.Visible;
+                    opacityAnimateButton(buttonSectionBasic);
+                    buttonSectionBasic.Visibility = Visibility.Visible;
 
                     infoPanel.Visibility = Visibility.Visible;
                     DoubleAnimation infoPanelAnimation = new DoubleAnimation();
@@ -423,7 +453,7 @@ namespace Курсоч
                     DescriptorEI.BeginAnimation(Border.WidthProperty, doubleAnimationUsingKeyFramesDescriptorEI);
 
 
-                    int descSNWIDTH = 210-(int)(105 + 105 * (descriptorSN / 5));
+                    int descSNWIDTH = 210 - (int)(105 + 105 * (descriptorSN / 5));
 
                     DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesDescriptorSN = new DoubleAnimationUsingKeyFrames();
                     LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorSN = new LinearDoubleKeyFrame();
@@ -436,7 +466,7 @@ namespace Курсоч
                     doubleAnimationUsingKeyFramesDescriptorSN.KeyFrames.Add(linearDoubleKeyFrameDescriptorSN2);
                     DescriptorSN.BeginAnimation(Border.WidthProperty, doubleAnimationUsingKeyFramesDescriptorSN);
 
-                    int descTFWIDTH = 210-(int)(105 + 105 * (descriptorTF / 5));
+                    int descTFWIDTH = 210 - (int)(105 + 105 * (descriptorTF / 5));
 
                     DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesDescriptorTF = new DoubleAnimationUsingKeyFrames();
                     LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorTF = new LinearDoubleKeyFrame();
@@ -465,27 +495,29 @@ namespace Курсоч
                 questionCounter++;
                 flag = false;
             }
-            
+
         }
 
-        public void defineYourPersonality(string type)
+        public string defineYourPersonality(string type)
         {
-            if (type =="INTJ") { resultPers.Text = "Стратег"; ArchitectRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[0]; }
-            if (type == "INTP") { resultPers.Text = "Учёный"; LogicianRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[1]; }
-            if (type == "ENTJ") { resultPers.Text = "Командир"; CommanderRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[2]; }
-            if (type == "ENTP") { resultPers.Text = "Полемист"; DebaterRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[3]; }
-            if (type == "INFJ") { resultPers.Text = "Активист"; AdvocateRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[4]; }
-            if (type == "INFP") { resultPers.Text = "Посредник"; MediatorRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[5]; }
-            if (type == "ENFJ") { resultPers.Text = "Протагонист"; ProtagonistRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[6]; }
-            if (type == "ENFP") { resultPers.Text = "Борец"; CampaignerRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[7]; }
-            if (type == "ISTJ") { resultPers.Text = "Администратор"; LogisticianRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[8]; }
-            if (type == "ISFJ") { resultPers.Text = "Защитник"; DefenderRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[9]; }
-            if (type == "ESTJ") { resultPers.Text = "Менеджер"; ExecutiveRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[10]; }
-            if (type == "ESFJ") { resultPers.Text = "Консул"; ConsulRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[11]; }
-            if (type == "ISTP") { resultPers.Text = "Виртуоз"; VirtuosoRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[12]; }
-            if (type == "ISFP") { resultPers.Text = "Искатель"; AdventurerRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[13]; }
-            if (type == "ESTP") { resultPers.Text = "Делец"; EnterteinerRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[14]; }
-            if (type == "ESFP") { resultPers.Text = "Увеселитель"; EnterteinerRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[15]; }
+            string outputType = "";
+            if (type == "INTJ") { resultPers.Text = "Стратег"; outputType = "Стратег"; ArchitectRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[0]; }
+            if (type == "INTP") { resultPers.Text = "Учёный"; outputType = "Учёный"; LogicianRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[1]; }
+            if (type == "ENTJ") { resultPers.Text = "Командир"; outputType = "Командир"; CommanderRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[2]; }
+            if (type == "ENTP") { resultPers.Text = "Полемист"; outputType = "Полемист"; DebaterRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[3]; }
+            if (type == "INFJ") { resultPers.Text = "Активист"; outputType = "Активист"; AdvocateRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[4]; }
+            if (type == "INFP") { resultPers.Text = "Посредник"; outputType = "Посредник"; MediatorRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[5]; }
+            if (type == "ENFJ") { resultPers.Text = "Протагонист"; outputType = "Протагонист"; ProtagonistRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[6]; }
+            if (type == "ENFP") { resultPers.Text = "Борец"; outputType = "Борец"; CampaignerRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[7]; }
+            if (type == "ISTJ") { resultPers.Text = "Администратор"; outputType = "Администратор"; LogisticianRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[8]; }
+            if (type == "ISFJ") { resultPers.Text = "Защитник"; outputType = "Защитник"; DefenderRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[9]; }
+            if (type == "ESTJ") { resultPers.Text = "Менеджер"; outputType = "Менеджер"; ExecutiveRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[10]; }
+            if (type == "ESFJ") { resultPers.Text = "Консул"; outputType = "Консул"; ConsulRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[11]; }
+            if (type == "ISTP") { resultPers.Text = "Виртуоз"; outputType = "Виртуоз"; VirtuosoRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[12]; }
+            if (type == "ISFP") { resultPers.Text = "Искатель"; outputType = "Искатель"; AdventurerRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[13]; }
+            if (type == "ESTP") { resultPers.Text = "Делец"; outputType = "Делец"; EntrepreneurRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[14]; }
+            if (type == "ESFP") { resultPers.Text = "Увеселитель"; outputType = "Увеселитель"; EnterteinerRes.Visibility = Visibility.Visible; resultDescriptionPers.Text = persDescriptions[15]; }
+            return outputType;
         }
         private void buttonSectionBasic_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -495,8 +527,23 @@ namespace Курсоч
             textBlockSectionBasicAnimation.To = 1;
             textBlockSectionBasicAnimation.Duration = TimeSpan.FromSeconds(0.3);
             textBlockSectionBasic.BeginAnimation(TextBlock.OpacityProperty, textBlockSectionBasicAnimation);
-        }
 
+            string listOfUsers = "";
+            using (sixteenPersDB db = new sixteenPersDB())
+            {
+                var ress = from r in db.results.ToList()
+                           where r.result_type == type
+                           select r;
+                foreach (result u in ress)
+                {
+                    listOfUsers += u.user_login + " ";
+                }
+
+
+            }
+            textBlockSectionBasic.Text = listOfUsers;
+
+        }
         private void buttonSectionBasic_MouseLeave(object sender, MouseEventArgs e)
         {
             DoubleAnimation textBlockSectionBasicAnimation = new DoubleAnimation();
@@ -504,66 +551,8 @@ namespace Курсоч
             textBlockSectionBasicAnimation.To = 0;
             textBlockSectionBasicAnimation.Duration = TimeSpan.FromSeconds(0.3);
             textBlockSectionBasic.BeginAnimation(TextBlock.OpacityProperty, textBlockSectionBasicAnimation);
+
         }
-
-        private void buttonSectionAdvantages_MouseEnter(object sender, MouseEventArgs e)
-        {
-            textBlockSectionAdvantages.Visibility = Visibility.Visible;
-            DoubleAnimation textBlockSectionAdvantagesAnimation = new DoubleAnimation();
-            textBlockSectionAdvantagesAnimation.From = textBlockSectionAdvantages.Opacity;
-            textBlockSectionAdvantagesAnimation.To = 1;
-            textBlockSectionAdvantagesAnimation.Duration = TimeSpan.FromSeconds(0.3);
-            textBlockSectionAdvantages.BeginAnimation(TextBlock.OpacityProperty, textBlockSectionAdvantagesAnimation);
-        }
-
-        private void buttonSectionAdvantages_MouseLeave(object sender, MouseEventArgs e)
-        {
-            DoubleAnimation textBlockSectionAdvantagesAnimation = new DoubleAnimation();
-            textBlockSectionAdvantagesAnimation.From = textBlockSectionBasic.Opacity;
-            textBlockSectionAdvantagesAnimation.To = 0;
-            textBlockSectionAdvantagesAnimation.Duration = TimeSpan.FromSeconds(0.3);
-            textBlockSectionAdvantages.BeginAnimation(TextBlock.OpacityProperty, textBlockSectionAdvantagesAnimation);
-        }
-
-        private void buttonSectionsDisAdvantages_MouseEnter(object sender, MouseEventArgs e)
-        {
-            textBlockSectionsDisAdvantages.Visibility = Visibility.Visible;
-            DoubleAnimation textBlockSectionsDisAdvantagesAnimation = new DoubleAnimation();
-            textBlockSectionsDisAdvantagesAnimation.From = textBlockSectionsDisAdvantages.Opacity;
-            textBlockSectionsDisAdvantagesAnimation.To = 1;
-            textBlockSectionsDisAdvantagesAnimation.Duration = TimeSpan.FromSeconds(0.3);
-            textBlockSectionsDisAdvantages.BeginAnimation(TextBlock.OpacityProperty, textBlockSectionsDisAdvantagesAnimation);
-        }
-
-        private void buttonSectionsDisAdvantages_MouseLeave(object sender, MouseEventArgs e)
-        {
-            DoubleAnimation textBlockSectionsDisAdvantagesAnimation = new DoubleAnimation();
-            textBlockSectionsDisAdvantagesAnimation.From = textBlockSectionsDisAdvantages.Opacity;
-            textBlockSectionsDisAdvantagesAnimation.To = 0;
-            textBlockSectionsDisAdvantagesAnimation.Duration = TimeSpan.FromSeconds(0.3);
-            textBlockSectionsDisAdvantages.BeginAnimation(TextBlock.OpacityProperty, textBlockSectionsDisAdvantagesAnimation);
-        }
-
-        private void buttonSectionAnother_MouseEnter(object sender, MouseEventArgs e)
-        {
-            textBlockSectionAnother.Visibility = Visibility.Visible;
-            DoubleAnimation textBlockSectionAnotherAnimation = new DoubleAnimation();
-            textBlockSectionAnotherAnimation.From = textBlockSectionAnother.Opacity;
-            textBlockSectionAnotherAnimation.To = 1;
-            textBlockSectionAnotherAnimation.Duration = TimeSpan.FromSeconds(0.3);
-            textBlockSectionAnother.BeginAnimation(TextBlock.OpacityProperty, textBlockSectionAnotherAnimation);
-        }
-
-        private void buttonSectionAnother_MouseLeave(object sender, MouseEventArgs e)
-        {
-            DoubleAnimation textBlockSectionAnotherAnimation = new DoubleAnimation();
-            textBlockSectionAnotherAnimation.From = textBlockSectionAnother.Opacity;
-            textBlockSectionAnotherAnimation.To = 0;
-            textBlockSectionAnotherAnimation.Duration = TimeSpan.FromSeconds(0.3);
-            textBlockSectionAnother.BeginAnimation(TextBlock.OpacityProperty, textBlockSectionAnotherAnimation);
-        }
-
-
 
         private void buttonCreateTest_Click(object sender, RoutedEventArgs e)
         {
@@ -579,7 +568,7 @@ namespace Курсоч
 
 
 
-            }
+        }
 
         private void nextYourQuestion_Click(object sender, RoutedEventArgs e)
         {
@@ -604,31 +593,29 @@ namespace Курсоч
                     nextYourQuestion.Visibility = Visibility.Hidden;
                 }
             }
-          
+
         }
 
         private void buttonMyTests_Click(object sender, RoutedEventArgs e)
         {
             generateYourTestsBlocks();
+            myTestsPanel.Visibility = Visibility.Visible;
+            opacityAnimateStackPanel(myTestsPanel);
+            MenuPanel.Visibility = Visibility.Hidden;
+            CurrentLocation = "MyTests";
         }
 
         private void buttonNextCreateTest_Click(object sender, RoutedEventArgs e)
         {
-            if (yourTestName.Text!= "Введите название здесь.") {
+            if (yourTestName.Text != "Введите название здесь.")
+            {
                 descriptionCreatePanel.Visibility = Visibility.Visible;
                 currentMyTestName = yourTestName.Text;
-
-                DoubleAnimation descriptionCreatePanelAnimation = new DoubleAnimation();
-                descriptionCreatePanelAnimation.From = descriptionCreatePanel.Opacity;
-                descriptionCreatePanelAnimation.To = 1;
-                descriptionCreatePanelAnimation.Duration = TimeSpan.FromSeconds(0.3);
-                descriptionCreatePanel.BeginAnimation(StackPanel.OpacityProperty, descriptionCreatePanelAnimation);
-
-
+                opacityAnimateStackPanel(descriptionCreatePanel);
                 nameCreatePanel.Visibility = Visibility.Hidden;
+                CurrentLocation = "TestCreator";
             }
         }
-
         private void buttonNextNextCreateTest_Click(object sender, RoutedEventArgs e)
         {
             if (yourTestDescription.Text != "Введите описание здесь.")
@@ -754,7 +741,7 @@ namespace Курсоч
             doubleAnimationUsingKeyFramesResult8.KeyFrames.Add(linearDoubleKeyFrameResult82);
             result8.BeginAnimation(StackPanel.OpacityProperty, doubleAnimationUsingKeyFramesResult8);
 
-          
+
             DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramessaveTest = new DoubleAnimationUsingKeyFrames();
             LinearDoubleKeyFrame linearDoubleKeyFramesaveTest = new LinearDoubleKeyFrame();
             LinearDoubleKeyFrame linearDoubleKeyFramesaveTest2 = new LinearDoubleKeyFrame();
@@ -817,6 +804,9 @@ namespace Курсоч
                     db.my_test_decriptor.Add(new my_test_decriptor() { name_descriptor = resultNameABF.Text, test_name = currentMyTestName, description = resultDescriptionABF.Text, type_descriptor = "ABF" });
                     db.my_test_decriptor.Add(new my_test_decriptor() { name_descriptor = resultNameDBF.Text, test_name = currentMyTestName, description = resultDescriptionDBF.Text, type_descriptor = "DBF" });
                     db.SaveChanges();
+                    nextYourQuestion.Visibility = Visibility.Hidden;
+                    yourQuestion.Visibility = Visibility.Hidden;
+                    statusDynamicBar.Visibility = Visibility.Hidden;
                     generateYourTestsBlocks();
                 }
             }
@@ -839,30 +829,32 @@ namespace Курсоч
                 }
                 foreach (my_test mt in myTests)
                 {
-                        TextBlock testName = new TextBlock();
-                        testName.Text = mt.test_name;
-                        testName.Foreground = new SolidColorBrush(Colors.White);
-                        testName.FontSize = 50 / db.my_test.Count();
-                        testName.FontWeight = FontWeights.Bold;
-                        testName.HorizontalAlignment = HorizontalAlignment.Center;
-                        testName.VerticalAlignment = VerticalAlignment.Center;
-                        Border testBlock = new Border();
-                        testBlock.Width = 350 / db.my_test.Count();
-                        testBlock.Height = 200 / db.my_test.Count();
-                        testBlock.Background = new SolidColorBrush(Colors.MediumSeaGreen);
-                        testBlock.Margin = new Thickness(5);
-                        testBlock.CornerRadius = new CornerRadius(200 / db.my_test.Count() / 3);
-                        testBlock.Child = testName;
-                        testBlock.HorizontalAlignment = HorizontalAlignment.Center;
-                        testBlock.VerticalAlignment = VerticalAlignment.Center;
-                        myTestsPanel.Children.Add(testBlock);
-                        testBlock.MouseDown += myChosenTest_MouseDown;
+                    TextBlock testName = new TextBlock();
+                    testName.Text = mt.test_name;
+                    testName.Foreground = new SolidColorBrush(Colors.White);
+                    testName.FontSize = 50 / myTests.Count();
+                    testName.FontWeight = FontWeights.Bold;
+                    testName.HorizontalAlignment = HorizontalAlignment.Center;
+                    testName.VerticalAlignment = VerticalAlignment.Center;
+                    Border testBlock = new Border();
+                    testBlock.Width = 350 / myTests.Count();
+                    testBlock.Height = 200 / myTests.Count();
+                    testBlock.Background = new SolidColorBrush(Colors.MediumSeaGreen);
+                    testBlock.Margin = new Thickness(5);
+                    testBlock.CornerRadius = new CornerRadius(200 / myTests.Count() / 3);
+                    testBlock.Child = testName;
+                    testBlock.HorizontalAlignment = HorizontalAlignment.Center;
+                    testBlock.VerticalAlignment = VerticalAlignment.Center;
+                    myTestsPanel.Children.Add(testBlock);
+                    testBlock.MouseDown += myChosenTest_MouseDown;
                 }
             }
-         }
+        }
 
         private void myChosenTest_MouseDown(object sender, MouseButtonEventArgs e)
         {
+
+            CurrentLocation = "Options";
             using (sixteenPersDB db = new sixteenPersDB())
             {
                 if (sender is Border)
@@ -880,12 +872,9 @@ namespace Курсоч
                                     select d;
                         my_test MT = (my_test)descr.First();
                         yourTestDescriptionText.Text = MT.description;
-                        DoubleAnimation yourTestOptionPanelAnimation = new DoubleAnimation();
-                        yourTestOptionPanelAnimation.From = yourTestOptionPanel.Opacity;
-                        yourTestOptionPanelAnimation.To = 1;
-                        yourTestOptionPanelAnimation.Duration = TimeSpan.FromSeconds(0.3);
-                        yourTestOptionPanel.BeginAnimation(TextBox.OpacityProperty, yourTestOptionPanelAnimation);
+                        opacityAnimateStackPanel(yourTestOptionPanel);
                         myTestsPanel.Children.Clear();
+                        myTestsPanel.Visibility = Visibility.Hidden;
                     }
                 }
             }
@@ -900,99 +889,134 @@ namespace Курсоч
             Crawlers.Visibility = Visibility.Hidden;
 
             infoPanel.Visibility = Visibility.Visible;
-            infoPanel.Opacity = 1;
+            opacityAnimateStackPanel(infoPanel);
+            infoPanel.Visibility = Visibility.Visible;
+            opacityAnimateButton(buttonSectionBasic);
+            buttonSectionBasic.Visibility = Visibility.Visible;
             if (image.Name == "Architect")
             {
+                CurrentLocation = "Analytic";
+                type = "INTJ";
                 resultPers.Text = "Cтратег";
                 resultDescriptionPers.Text = persDescriptions[0];
                 ArchitectRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Logician")
             {
+                CurrentLocation = "Analytic";
+                type = "INTP";
                 resultPers.Text = "Учёный";
                 resultDescriptionPers.Text = persDescriptions[1];
                 LogicianRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Commander")
             {
+                CurrentLocation = "Analytic";
+                type = "ENTJ";
                 resultPers.Text = "Командир";
                 resultDescriptionPers.Text = persDescriptions[2];
                 CommanderRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Debater")
             {
+                CurrentLocation = "Analytic";
+                type = "ENTP";
                 resultPers.Text = "Полемист";
                 resultDescriptionPers.Text = persDescriptions[3];
                 DebaterRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Advocate")
             {
+                CurrentLocation = "Diplomat";
+                type = "INFJ";
                 resultPers.Text = "Активист";
                 resultDescriptionPers.Text = persDescriptions[4];
                 AdvocateRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Mediator")
             {
+                CurrentLocation = "Diplomat";
+                type = "INFP";
                 resultPers.Text = "Посредник";
                 resultDescriptionPers.Text = persDescriptions[5];
                 MediatorRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Protagonist")
             {
+                CurrentLocation = "Diplomat";
+                type = "ENFJ";
                 resultPers.Text = "Протагонист";
                 resultDescriptionPers.Text = persDescriptions[6];
                 ProtagonistRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Campaigner")
             {
+                CurrentLocation = "Diplomat";
+                type = "ENFP";
                 resultPers.Text = "Протагонист";
                 resultDescriptionPers.Text = persDescriptions[7];
                 CampaignerRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Logistician")
             {
+                CurrentLocation = "Guardian";
+                type = "ISTJ";
                 resultPers.Text = "Администратор";
                 resultDescriptionPers.Text = persDescriptions[8];
                 LogisticianRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Defender")
             {
+                CurrentLocation = "Guardian";
+                type = "ISFJ";
                 resultPers.Text = "Защитник";
                 resultDescriptionPers.Text = persDescriptions[9];
                 DefenderRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Executive")
             {
+                CurrentLocation = "Guardian";
+                type = "ESTJ";
                 resultPers.Text = "Менеджер";
                 resultDescriptionPers.Text = persDescriptions[10];
                 ExecutiveRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Consul")
             {
+                CurrentLocation = "Guardian";
+                type = "ESFJ";
                 resultPers.Text = "Консул";
                 resultDescriptionPers.Text = persDescriptions[11];
                 ConsulRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Virtuoso")
             {
+                CurrentLocation = "Crawler";
+                type = "ISTP";
                 resultPers.Text = "Виртуоз";
                 resultDescriptionPers.Text = persDescriptions[12];
                 VirtuosoRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Adventurer")
             {
+                CurrentLocation = "Crawler";
+                type = "ISFP";
                 resultPers.Text = "Искатель";
                 resultDescriptionPers.Text = persDescriptions[13];
                 AdventurerRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Entrepreneur")
             {
+                CurrentLocation = "Crawler";
+                type = "ESTP";
                 resultPers.Text = "Делец";
                 resultDescriptionPers.Text = persDescriptions[14];
                 EntrepreneurRes.Visibility = Visibility.Visible;
             }
             if (image.Name == "Enterteiner")
             {
+                CurrentLocation = "Crawler";
+                type = "ESFP";
                 resultPers.Text = "Увеселитель";
                 resultDescriptionPers.Text = persDescriptions[15];
                 EnterteinerRes.Visibility = Visibility.Visible;
@@ -1003,30 +1027,38 @@ namespace Курсоч
         {
             fourPersGroups.Visibility = Visibility.Hidden;
             Analytics.Visibility = Visibility.Visible;
+            opacityAnimateStackPanel(Analytics);
+            CurrentLocation = "Analytics";
         }
 
         private void buttonGuardians_Click(object sender, RoutedEventArgs e)
         {
             fourPersGroups.Visibility = Visibility.Hidden;
             Guardians.Visibility = Visibility.Visible;
+            opacityAnimateStackPanel(Guardians);
+            CurrentLocation = "Guardians";
         }
 
         private void buttonCrawlers_Click(object sender, RoutedEventArgs e)
         {
             fourPersGroups.Visibility = Visibility.Hidden;
             Crawlers.Visibility = Visibility.Visible;
+            opacityAnimateStackPanel(Crawlers);
+            CurrentLocation = "Crawlers";
         }
 
         private void buttonDiplomats_Click(object sender, RoutedEventArgs e)
         {
             fourPersGroups.Visibility = Visibility.Hidden;
             Diplomats.Visibility = Visibility.Visible;
+            opacityAnimateStackPanel(Diplomats);
+            CurrentLocation = "Diplomats";
         }
 
         private void pers_MouseEnter(object sender, MouseEventArgs e)
         {
             Image imagePers = (Image)sender;
-            if(imagePers.Name== "Architect")
+            if (imagePers.Name == "Architect")
             {
                 DoubleAnimation ArchitectAnimation = new DoubleAnimation();
                 ArchitectAnimation.From = Architect.Height;
@@ -1306,7 +1338,7 @@ namespace Курсоч
         }
         public void opacityAnimateStackPanel(StackPanel st)
         {
-            
+
             DoubleAnimation stAnimation = new DoubleAnimation();
             stAnimation.From = st.Opacity;
             stAnimation.To = 1;
@@ -1342,34 +1374,35 @@ namespace Курсоч
         }
         private void buttonDeleteYourTest_Click(object sender, RoutedEventArgs e)
         {
-            yourTestOptionPanel.Visibility=Visibility.Hidden;
+            yourTestOptionPanel.Visibility = Visibility.Hidden;
             areYourSurePanel.Visibility = Visibility.Visible;
             opacityAnimateBorder(areYourSurePanel);
+            CurrentLocation = "Delete";
         }
 
         private void buttonYes_Click(object sender, RoutedEventArgs e)
         {
             areYourSurePanel.Visibility = Visibility.Hidden;
             myTestsPanel.Visibility = Visibility.Visible;
-            using (sixteenPersDB db = new sixteenPersDB()) 
+            using (sixteenPersDB db = new sixteenPersDB())
             {
                 foreach (my_test mt in db.my_test)
                 {
                     if (mt.test_name == currentMyTestName)
                     {
                         db.my_test.Remove(mt);
-                        
+
                     }
                 }
-                foreach(question qt in db.questions)
+                foreach (question qt in db.questions)
                 {
                     if (qt.test_name == currentMyTestName)
                     {
                         db.questions.Remove(qt);
-                       
+
                     }
                 }
-                foreach (my_test_decriptor des  in db.my_test_decriptor)
+                foreach (my_test_decriptor des in db.my_test_decriptor)
                 {
                     if (des.test_name == currentMyTestName)
                     {
@@ -1390,7 +1423,9 @@ namespace Курсоч
 
         private void buttonStartYourTest_Click(object sender, RoutedEventArgs e)
         {
+            CurrentLocation = "CustomTest";
             statusDynamicBar.Visibility = Visibility.Visible;
+            yourTestOptionPanel.Visibility = Visibility.Hidden;
             opacityAnimateStackPanel(statusDynamicBar);
             buttonNextQuestionRunningCustomTest.Visibility = Visibility.Visible;
             opacityAnimateButton(buttonNextQuestionRunningCustomTest);
@@ -1416,8 +1451,540 @@ namespace Курсоч
                 question.Text = yourQuestionsText.First();
             }
         }
+
+        private void buttonNextQuestionRunningCustomTest_Click(object sender, RoutedEventArgs e)
+        {
+
+            bool flag = false;
+            if (questionCounter <= questionsText.Count)
+            {
+                if (radio0.IsChecked == true) { testAnswers.Add(1); flag = true; }
+                if (radio1.IsChecked == true) { testAnswers.Add(0.6); flag = true; }
+                if (radio2.IsChecked == true) { testAnswers.Add(0.3); flag = true; }
+                if (radio3.IsChecked == true) { testAnswers.Add(0); flag = true; }
+                if (radio4.IsChecked == true) { testAnswers.Add(-0.3); flag = true; }
+                if (radio5.IsChecked == true) { testAnswers.Add(-0.6); flag = true; }
+                if (radio6.IsChecked == true) { testAnswers.Add(-1); flag = true; }
+            }
+
+            if (flag)
+            {
+                Ellipse el = (Ellipse)statusDynamicBar.Children[questionCounter];
+                el.Fill = new SolidColorBrush(Colors.Green);
+                radio0.IsChecked = false;
+                radio2.IsChecked = false;
+                radio3.IsChecked = false;
+                radio4.IsChecked = false;
+                radio5.IsChecked = false;
+                radio6.IsChecked = false;
+
+                if (questionCounter != yourQuestionsText.Count) { question.Text = yourQuestionsText[questionCounter]; }
+                if (questionCounter == yourQuestionsText.Count - 1)
+                {
+                    buttonNextQuestionRunningCustomTest.Visibility = Visibility.Hidden;
+                    buttonLastQuestionRunningCustomTest.Visibility = Visibility.Visible;
+                }
+                if (questionCounter == yourQuestionsText.Count)
+                {
+                    buttonNextQuestionRunningCustomTest.Visibility = Visibility.Hidden;
+                    buttonLastQuestionRunningCustomTest.Visibility = Visibility.Hidden;
+                    question.Visibility = Visibility.Hidden;
+                    radioPanel.Visibility = Visibility.Hidden;
+                    Logo.Visibility = Visibility.Hidden;
+                    statusDynamicBar.Visibility = Visibility.Hidden;
+                    ////////
+                    for (int i = 0; i < 4; i++) { descriptorAD += testAnswers[i]; }
+                    for (int i = 4; i < 8; i++) { descriptorBE += testAnswers[i]; }
+                    for (int i = 8; i < 12; i++) { descriptorCF += testAnswers[i]; }
+
+                    if (descriptorAD < 0) { type += "A"; } else { type += "D"; }
+                    if (descriptorBE < 0) { type += "B"; } else { type += "E"; }
+                    if (descriptorCF < 0) { type += "C"; } else { type += "F"; }
+                    string cusDescr = "";
+                    string cusName = "";
+                    List<my_test_decriptor> mtd = new List<my_test_decriptor>();
+                    using (sixteenPersDB db = new sixteenPersDB())
+                    {
+                        var descr = from d in db.my_test_decriptor.ToList()
+                                    where d.test_name == currentMyTestName
+                                    select d;
+                        foreach (my_test_decriptor d in descr)
+                        {
+                            if (d.type_descriptor == type)
+                            {
+                                cusName = d.name_descriptor;
+                                cusDescr = d.description;
+                            }
+                        }
+                    }
+                    opacityAnimateStackPanel(infoPanelCustomTest);
+                    infoPanelCustomTest.Visibility = Visibility.Visible;
+                    resultCustomTestName.Text = cusName;
+                    resultCustomTestDescription.Text = cusDescr;
+                }
+
+            }
+            questionCounter++;
+            flag = false;
+        }
+
+        private void buttonYourType_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentLocation = "YourType";
+            using (sixteenPersDB db = new sixteenPersDB())
+            {
+
+                foreach (result r in db.results)
+                {
+                    if (r.user_login == CurrentUser.login)
+                    {
+
+                        currentResults.Add(r);
+                    }
+                }
+
+
+                result actualResult = currentResults.Last();
+                defineYourPersonality(actualResult.result_type);
+                infoPanel.Visibility = Visibility.Visible;
+                opacityAnimateStackPanel(infoPanel);
+                MenuPanel.Visibility = Visibility.Hidden;
+                statInfoPanel.Visibility = Visibility.Visible;
+                opacityAnimateStackPanel(statInfoPanel);
+
+                descriptorEI = (double)actualResult.descriptor_EI;
+                descriptorSN = (double)actualResult.descriptor_SN;
+                descriptorTF = (double)actualResult.descriptor_TF;
+                descriptorJP = (double)actualResult.descriptor_JP;
+
+                int descEIWIDTH = (int)(105 + 105 * (descriptorEI / 5));
+
+                DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesDescriptorEI = new DoubleAnimationUsingKeyFrames();
+                LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorEI = new LinearDoubleKeyFrame();
+                LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorEI2 = new LinearDoubleKeyFrame();
+                linearDoubleKeyFrameDescriptorEI.KeyTime = TimeSpan.FromSeconds(0.5);
+                linearDoubleKeyFrameDescriptorEI.Value = 0;
+                linearDoubleKeyFrameDescriptorEI2.KeyTime = TimeSpan.FromSeconds(1);
+                linearDoubleKeyFrameDescriptorEI2.Value = descEIWIDTH;
+                doubleAnimationUsingKeyFramesDescriptorEI.KeyFrames.Add(linearDoubleKeyFrameDescriptorEI);
+                doubleAnimationUsingKeyFramesDescriptorEI.KeyFrames.Add(linearDoubleKeyFrameDescriptorEI2);
+                DescriptorEI.BeginAnimation(Border.WidthProperty, doubleAnimationUsingKeyFramesDescriptorEI);
+
+
+                int descSNWIDTH = 210 - (int)(105 + 105 * (descriptorSN / 5));
+
+                DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesDescriptorSN = new DoubleAnimationUsingKeyFrames();
+                LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorSN = new LinearDoubleKeyFrame();
+                LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorSN2 = new LinearDoubleKeyFrame();
+                linearDoubleKeyFrameDescriptorSN.KeyTime = TimeSpan.FromSeconds(1);
+                linearDoubleKeyFrameDescriptorSN.Value = 0;
+                linearDoubleKeyFrameDescriptorSN2.KeyTime = TimeSpan.FromSeconds(1.5);
+                linearDoubleKeyFrameDescriptorSN2.Value = descSNWIDTH;
+                doubleAnimationUsingKeyFramesDescriptorSN.KeyFrames.Add(linearDoubleKeyFrameDescriptorSN);
+                doubleAnimationUsingKeyFramesDescriptorSN.KeyFrames.Add(linearDoubleKeyFrameDescriptorSN2);
+                DescriptorSN.BeginAnimation(Border.WidthProperty, doubleAnimationUsingKeyFramesDescriptorSN);
+
+                int descTFWIDTH = 210 - (int)(105 + 105 * (descriptorTF / 5));
+
+                DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesDescriptorTF = new DoubleAnimationUsingKeyFrames();
+                LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorTF = new LinearDoubleKeyFrame();
+                LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorTF2 = new LinearDoubleKeyFrame();
+                linearDoubleKeyFrameDescriptorTF.KeyTime = TimeSpan.FromSeconds(1.5);
+                linearDoubleKeyFrameDescriptorTF.Value = 0;
+                linearDoubleKeyFrameDescriptorTF2.KeyTime = TimeSpan.FromSeconds(2);
+                linearDoubleKeyFrameDescriptorTF2.Value = descTFWIDTH;
+                doubleAnimationUsingKeyFramesDescriptorTF.KeyFrames.Add(linearDoubleKeyFrameDescriptorTF);
+                doubleAnimationUsingKeyFramesDescriptorTF.KeyFrames.Add(linearDoubleKeyFrameDescriptorTF2);
+                DescriptorTF.BeginAnimation(Border.WidthProperty, doubleAnimationUsingKeyFramesDescriptorTF);
+
+                int descJPWIDTH = (int)(105 + 105 * (descriptorJP / 5));
+
+                DoubleAnimationUsingKeyFrames doubleAnimationUsingKeyFramesDescriptorJP = new DoubleAnimationUsingKeyFrames();
+                LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorJP = new LinearDoubleKeyFrame();
+                LinearDoubleKeyFrame linearDoubleKeyFrameDescriptorJP2 = new LinearDoubleKeyFrame();
+                linearDoubleKeyFrameDescriptorJP.KeyTime = TimeSpan.FromSeconds(2);
+                linearDoubleKeyFrameDescriptorJP.Value = 0;
+                linearDoubleKeyFrameDescriptorJP2.KeyTime = TimeSpan.FromSeconds(2.5);
+                linearDoubleKeyFrameDescriptorJP2.Value = descJPWIDTH;
+                doubleAnimationUsingKeyFramesDescriptorJP.KeyFrames.Add(linearDoubleKeyFrameDescriptorJP);
+                doubleAnimationUsingKeyFramesDescriptorJP.KeyFrames.Add(linearDoubleKeyFrameDescriptorJP2);
+                DescriptorJP.BeginAnimation(Border.WidthProperty, doubleAnimationUsingKeyFramesDescriptorJP);
+            }
+
+        }
+
+        private void buttonReturn_Click(object sender, RoutedEventArgs e)
+        {
+            switch (CurrentLocation)
+            {
+                case "MainTest":
+                    {
+                        statInfoPanel.Visibility = Visibility.Hidden;
+                        statInfoPanel.Opacity = 0;
+                        beginTestPanel.Opacity = 0;
+                        beginTestPanel.Visibility = Visibility.Hidden;
+                        infoPanel.Visibility = Visibility.Hidden;
+                        infoPanel.Opacity = 0;
+                        buttonSectionBasic.Visibility = Visibility.Hidden;
+                        buttonSectionBasic.Opacity = 0;
+                        question.Visibility = Visibility.Hidden;
+                        question.Opacity = 0;
+                        radioPanel.Visibility = Visibility.Hidden;
+                        radioPanel.Opacity = 0;
+                        buttonNextQuestion.Visibility = Visibility.Hidden;
+                        buttonNextQuestion.Opacity = 0;
+                        buttonLastQuestion.Visibility = Visibility.Hidden;
+                        questionCounter = 0;
+                        testAnswers.Clear();
+                        MenuPanel.Visibility = Visibility.Visible;
+                        opacityAnimateBorder(MenuPanel);
+                        question.Text = questionsText.First();
+                        statusBar.Visibility = Visibility.Hidden;
+                        statusBar.Opacity = 0;
+                        foreach (Ellipse el in statusBar.Children) 
+                        {
+                            el.Fill = new SolidColorBrush(Colors.Red);
+                        }
+                        CurrentLocation = "";
+                        DescriptorSN.Width = 0;
+                        DescriptorTF.Width = 0;
+                        DescriptorEI.Width = 0;
+                        DescriptorJP.Width = 0;
+                        type = "";
+                    }
+                    break;
+                case "MyTests":
+                    {
+                        myTestsPanel.Visibility = Visibility.Hidden;
+                        myTestsPanel.Opacity = 0;
+                        myTestsPanel.Children.Clear();
+                        MenuPanel.Visibility = Visibility.Visible;
+                        opacityAnimateBorder(MenuPanel);
+                        CurrentLocation = "";
+                        beginCreatePanel.Visibility = Visibility.Hidden;
+                        beginCreatePanel.Opacity = 0;
+                    }
+                    break;
+                case "TestCreator":
+                    {
+
+                        myTestsPanel.Visibility = Visibility.Visible;
+                        generateYourTestsBlocks(); 
+                        nextYourQuestion.Visibility = Visibility.Hidden;
+                        nextYourQuestion.Opacity = 0;
+                        yourQuestion.Visibility = Visibility.Hidden;
+                        yourQuestion.Opacity = 0;
+                        statusDynamicBar.Visibility = Visibility.Hidden;
+                        statusDynamicBar.Opacity = 0;
+                        toResultsYourTest.Visibility = Visibility.Hidden;
+                        nameCreatePanel.Visibility = Visibility.Hidden;
+                        nameCreatePanel.Opacity = 0;
+                        descriptionCreatePanel.Visibility = Visibility.Hidden;
+                        descriptionCreatePanel.Opacity = 0;
+                        resultsYourTestPanel.Visibility = Visibility.Hidden;
+                        resultsYourTestPanel.Opacity = 0;
+                        saveTest.Visibility = Visibility.Hidden;
+                        saveTest.Opacity = 0;
+                        opacityAnimateStackPanel(myTestsPanel);
+                        yourQuestionsText.Clear();
+                        yourTestDescriptionText.Text = "О чем ваш тест?";
+                        yourTestName.Text = "Как называется ваш тест?";
+                        CurrentLocation = "MyTests";
+                    }
+                    break;
+
+                case "Options":
+                    {
+
+                        myTestsPanel.Visibility = Visibility.Visible;
+                        generateYourTestsBlocks();
+                        yourTestOptionPanel.Visibility = Visibility.Hidden;
+                        yourTestOptionPanel.Opacity = 0;
+                        CurrentLocation = "MyTests";
+                    }
+                    break;
+                case "CustomTest":
+                    {
+                        yourTestOptionPanel.Visibility = Visibility.Visible;
+                        opacityAnimateStackPanel(yourTestOptionPanel);
+                        statusDynamicBar.Visibility = Visibility.Hidden;
+                        statusDynamicBar.Opacity = 0;
+                        radioPanel.Visibility = Visibility.Hidden;
+                        radioPanel.Opacity = 0;
+                        buttonNextQuestionRunningCustomTest.Visibility = Visibility.Hidden;
+                        buttonNextQuestionRunningCustomTest.Opacity = 0;
+                        buttonLastQuestionRunningCustomTest.Visibility = Visibility.Hidden;
+                        question.Visibility = Visibility.Hidden;
+                        question.Opacity = 0;
+                        testAnswers.Clear();
+                        CurrentLocation = "Options";
+                        foreach (Ellipse el in statusDynamicBar.Children)
+                        {
+                            el.Fill = new SolidColorBrush(Colors.Red);
+                        }
+                        
+                    }
+                    break;
+                case "Delete":
+                    {
+                        yourTestOptionPanel.Visibility = Visibility.Visible;
+                        opacityAnimateStackPanel(yourTestOptionPanel);
+                        areYourSurePanel.Visibility = Visibility.Hidden;
+                        areYourSurePanel.Opacity = 0;
+                        CurrentLocation = "Options";
+                    }
+                    break;
+                case "YourType":
+                    {
+                        foreach(object im in infoPanel.Children)
+                        {
+                            if (im is Image)
+                            {
+                                Image img = (Image)im;
+                                img.Visibility = Visibility.Collapsed;
+                            }
+                        }
+                        statInfoPanel.Visibility = Visibility.Hidden;
+                        statInfoPanel.Opacity = 0;
+                        infoPanel.Visibility = Visibility.Hidden;
+                        infoPanel.Opacity = 0;
+                        buttonSectionBasic.Visibility = Visibility.Hidden;
+                        buttonSectionBasic.Opacity = 0;
+                        MenuPanel.Visibility = Visibility.Visible;
+                        opacityAnimateBorder(MenuPanel);
+                        CurrentLocation = "";
+                        DescriptorSN.Width = 0;
+                        DescriptorTF.Width = 0;
+                        DescriptorEI.Width = 0;
+                        DescriptorJP.Width = 0;
+                    }
+                    break;
+                case "FourGroups":
+                    {
+                        fourPersGroups.Visibility = Visibility.Hidden;
+                        fourPersGroups.Opacity = 0;
+                        MenuPanel.Visibility = Visibility.Visible;
+                        opacityAnimateBorder(MenuPanel);
+                        CurrentLocation = "";
+                    }
+                    break;
+
+                case "Analytics":
+                    {
+                        Analytics.Visibility = Visibility.Hidden;
+                        Analytics.Opacity = 0;
+                        fourPersGroups.Visibility = Visibility.Visible;
+                        opacityAnimateBorder(MenuPanel);
+                        CurrentLocation = "FourGroups";
+                    }
+                    break;
+
+                case "Diplomats":
+                    {
+                        Diplomats.Opacity = 0;
+                        Diplomats.Visibility = Visibility.Hidden;
+                        fourPersGroups.Visibility = Visibility.Visible;
+                        opacityAnimateBorder(MenuPanel);
+                        CurrentLocation = "FourGroups";
+                    }
+                    break;
+                case "Guardians":
+                    {
+                        Guardians.Opacity = 0;
+                        Guardians.Visibility = Visibility.Hidden;
+                        fourPersGroups.Visibility = Visibility.Visible;
+                        opacityAnimateBorder(MenuPanel);
+                        CurrentLocation = "FourGroups";
+                    }
+                    break;
+                case "Crawlers":
+                    {
+                        Crawlers.Opacity = 0;
+                        Crawlers.Visibility = Visibility.Hidden;
+                        fourPersGroups.Visibility = Visibility.Visible;
+                        opacityAnimateBorder(MenuPanel);
+                        CurrentLocation = "FourGroups";
+                    }
+                    break;
+                case "Crawler":
+                    {
+                        foreach (object im in infoPanel.Children)
+                        {
+                            if (im is Image)
+                            {
+                                Image img = (Image)im;
+                                img.Visibility = Visibility.Collapsed;
+                            }
+                        }
+                        Crawlers.Visibility = Visibility.Visible;
+                        opacityAnimateStackPanel(Crawlers);
+                        infoPanel.Visibility = Visibility.Hidden;
+                        infoPanel.Opacity = 0;
+                        buttonSectionBasic.Visibility = Visibility.Hidden;
+                        buttonSectionBasic.Opacity = 0;
+                        CurrentLocation = "Crawlers";
+                    }
+                    break;
+                case "Guardian":
+                    {
+                        foreach (object im in infoPanel.Children)
+                        {
+                            if (im is Image)
+                            {
+                                Image img = (Image)im;
+                                img.Visibility = Visibility.Collapsed;
+                            }
+                        }
+                        Guardians.Visibility = Visibility.Visible;
+                        opacityAnimateStackPanel(Crawlers);
+                        infoPanel.Visibility = Visibility.Hidden;
+                        infoPanel.Opacity = 0;
+                        buttonSectionBasic.Visibility = Visibility.Hidden;
+                        buttonSectionBasic.Opacity = 0;
+                        CurrentLocation = "Guardians";
+                    }
+                    break;
+
+                case "Diplomat":
+                    {
+                        foreach (object im in infoPanel.Children)
+                        {
+                            if (im is Image)
+                            {
+                                Image img = (Image)im;
+                                img.Visibility = Visibility.Collapsed;
+                            }
+                        }
+                        Diplomats.Visibility = Visibility.Visible;
+                        opacityAnimateStackPanel(Crawlers);
+                        infoPanel.Visibility = Visibility.Hidden;
+                        infoPanel.Opacity = 0;
+                        buttonSectionBasic.Visibility = Visibility.Hidden;
+                        buttonSectionBasic.Opacity = 0;
+                        CurrentLocation = "Diplomats";
+                    }
+                    break;
+                case "Analytic":
+                    {
+                        foreach (object im in infoPanel.Children)
+                        {
+                            if (im is Image)
+                            {
+                                Image img = (Image)im;
+                                img.Visibility = Visibility.Collapsed;
+                            }
+                        }
+                        Analytics.Visibility = Visibility.Visible;
+                        opacityAnimateStackPanel(Crawlers);
+                        infoPanel.Visibility = Visibility.Hidden;
+                        infoPanel.Opacity = 0;
+                        buttonSectionBasic.Visibility = Visibility.Hidden;
+                        buttonSectionBasic.Opacity = 0;
+                        CurrentLocation = "Analytics";
+                    }
+                    break;
+                case "ChangeUser":
+                    {
+                        SignInSignUpPanel.Visibility = Visibility.Hidden;
+                        SignInSignUpPanel.Opacity = 0;
+                        MenuPanel.Visibility = Visibility.Visible;
+                        opacityAnimateBorder(MenuPanel);
+                    }
+                    break;
+            }
+        }
+
+        private void buttonHome_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Ellipse el in statusBar.Children)
+            {
+                el.Fill = new SolidColorBrush(Colors.Red);
+            }
+            foreach (object im in infoPanel.Children)
+            {
+                if (im is Image)
+                {
+                    Image img = (Image)im;
+                    img.Visibility = Visibility.Collapsed;
+                }
+            }
+            MenuPanel.Visibility = Visibility.Visible;
+            opacityAnimateBorder(MenuPanel);
+            CurrentLocation = "";
+            infoPanel.Visibility = Visibility.Hidden;
+            infoPanel.Opacity = 0;
+            buttonSectionBasic.Visibility = Visibility.Hidden;
+            buttonSectionBasic.Opacity = 0;
+            Crawlers.Visibility = Visibility.Hidden;
+            Crawlers.Opacity = 0;
+            Guardians.Visibility = Visibility.Hidden;
+            Guardians.Opacity = 0;
+            Diplomats.Visibility = Visibility.Hidden;
+            Diplomats.Opacity = 0;
+            Analytics.Visibility = Visibility.Hidden;
+            Analytics.Opacity = 0;
+            fourPersGroups.Visibility = Visibility.Hidden;
+            fourPersGroups.Opacity = 0;
+            statInfoPanel.Visibility = Visibility.Hidden;
+            statInfoPanel.Opacity = 0;
+            areYourSurePanel.Visibility = Visibility.Hidden;
+            areYourSurePanel.Opacity = 0;
+            statusDynamicBar.Visibility = Visibility.Hidden;
+            statusDynamicBar.Opacity = 0;
+            buttonNextQuestionRunningCustomTest.Visibility = Visibility.Hidden;
+            buttonNextQuestionRunningCustomTest.Opacity = 0;
+            buttonLastQuestionRunningCustomTest.Visibility = Visibility.Hidden;
+            question.Visibility = Visibility.Hidden;
+            question.Opacity = 0;
+            statusBar.Visibility = Visibility.Hidden;
+            statusBar.Opacity = 0;
+            testAnswers.Clear();
+            yourTestOptionPanel.Visibility = Visibility.Hidden;
+            yourTestOptionPanel.Opacity = 0;
+            nextYourQuestion.Visibility = Visibility.Hidden;
+            nextYourQuestion.Opacity = 0;
+            yourQuestion.Visibility = Visibility.Hidden;
+            yourQuestion.Opacity = 0;
+            toResultsYourTest.Visibility = Visibility.Hidden;
+            nameCreatePanel.Visibility = Visibility.Hidden;
+            nameCreatePanel.Opacity = 0;
+            descriptionCreatePanel.Visibility = Visibility.Hidden;
+            descriptionCreatePanel.Opacity = 0;
+            resultsYourTestPanel.Visibility = Visibility.Hidden;
+            resultsYourTestPanel.Opacity = 0;
+            saveTest.Visibility = Visibility.Hidden;
+            saveTest.Opacity = 0;
+            yourQuestionsText.Clear();
+            yourTestDescriptionText.Text = "О чем ваш тест?";
+            yourTestName.Text = "Как называется ваш тест?";
+            myTestsPanel.Visibility = Visibility.Hidden;
+            myTestsPanel.Opacity = 0;
+            myTestsPanel.Children.Clear();
+            radioPanel.Visibility = Visibility.Hidden;
+            radioPanel.Opacity = 0;
+            buttonNextQuestion.Visibility = Visibility.Hidden;
+            buttonNextQuestion.Opacity = 0;
+            buttonLastQuestion.Visibility = Visibility.Hidden;
+            questionCounter = 0;
+            testAnswers.Clear();
+            beginTestPanel.Opacity = 0;
+            beginTestPanel.Visibility = Visibility.Hidden;
+            type = "";
+            statInfoPanel.Visibility = Visibility.Hidden;
+            statInfoPanel.Opacity = 0;
+        }
+
+        private void buttonChangeUser_Click(object sender, RoutedEventArgs e)
+        {
+            MenuPanel.Visibility = Visibility.Hidden;
+            MenuPanel.Opacity = 0;
+            SignInSignUpPanel.Visibility = Visibility.Visible;
+            opacityAnimateBorder(SignInSignUpPanel);
+            CurrentLocation = "ChangeUser";
+
+
+
+        }
     }
-
-
 }
 

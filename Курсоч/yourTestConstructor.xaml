@@ -259,4 +259,26 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <ControlTemplate TargetType="Button" x:Key="ToMainTest">
+        <Border Style="{DynamicResource BorderToMainTest}">
+            <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Content="Начать"/>
+        </Border>
+    </ControlTemplate>
+    <Style x:Key="BorderToMainTest" TargetType="Border" >
+        <Style.Setters>
+            <Setter Property="Border.CornerRadius" Value="20"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Background" Value="#86BE4E"></Setter>
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=buttonToMainTest, Path=IsPressed}"
+                        Value="True">
+                <Setter Property="Background" Value="Red"/>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#96CD5F"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>
